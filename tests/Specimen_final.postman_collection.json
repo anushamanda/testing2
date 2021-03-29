@@ -772,13 +772,6 @@
 									"script": {
 										"exec": [
 											"\r",
-											"//pm.environment.set('spec_val', 4031)\r",
-											"\r",
-											"pm.test(\"The response has information about requested ID\", () => {\r",
-											"    //parse the response json and test three properties\r",
-											"    const responseJson = pm.response.json();\r",
-											"    pm.expect(responseJson.data.id).to.eql(4031);\r",
-											"});\r",
 											""
 										],
 										"type": "text/javascript"
@@ -1303,7 +1296,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/specimens?id=<integer>",
+							"raw": "{{base_url}}/api/specimens",
 							"host": [
 								"{{base_url}}"
 							],
@@ -1315,7 +1308,8 @@
 								{
 									"key": "id",
 									"value": "<integer>",
-									"description": "ID of the specimen"
+									"description": "ID of the specimen",
+									"disabled": true
 								}
 							]
 						}
@@ -1670,7 +1664,7 @@
 							"",
 							"if (pm.info.requestName !== \"Get All specimens\") {",
 							"pm.test(\"Response time is less than 200ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(10000);",
+							"    pm.expect(pm.response.responseTime).to.be.below(20000);",
 							"});",
 							"}",
 							"",
@@ -1688,18 +1682,24 @@
 							"",
 							"",
 							"",
-							"//pm.environment.set('Specimenschema', JSON.stringify(Specimenschema));",
 							"",
-							"const Specimenschema = JSON.parse(pm.environment.get(\"Specimenschema\"));",
+							"const Specimenschema = JSON.parse(pm.environment.get(\"specimenSchema\"));",
 							"",
-							"var statusCode = pm.response.code",
 							"",
-							"if(statusCode == 200){",
+							"if (pm.info.requestName == \"Get Specimen Associations Methods\" ||",
+							"    pm.info.requestName == \"Get Specimen Associations Articulation\" ||",
+							"    pm.info.requestName == \"Get Specimen\" ||",
+							"    pm.info.requestName == \"Get Specimen Pahology, Anomaly, & Trauma\" ||",
+							"    pm.info.requestName == \"Update Specimen Individual Number\"||",
+							"    pm.info.requestName == \"Get All specimens\" ||",
+							"    pm.info.requestName == \"Updae Specimen\" ",
+							"    )",
+							"{",
+							"    pm.test('Specimen Schema Test', function () {",
+							"        pm.response.to.have.jsonSchema(Specimenschema)",
+							"    });",
+							"};",
 							"",
-							"pm.test('Schema is valid', function () {",
-							"    pm.response.to.have.jsonSchema(Specimenschema)",
-							"});",
-							"}",
 							"",
 							"",
 							""
