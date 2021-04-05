@@ -812,7 +812,7 @@
 											"pm.test(\"Saving the returned values\", function () {\r",
 											"    var jsonData = pm.response.json();\r",
 											"    var provenance1 = jsonData.data.provenance1\r",
-											"    pm.collectionVariables.set(\"provenance1\", provenance1)\r",
+											"    pm.environment.set(\"provenance1\", provenance1)\r",
 											"    pm.expect(jsonData.data.provenance1).to.eql(provenance1);\r",
 											"    });\r",
 											"\r",
@@ -2172,13 +2172,12 @@
 													"\r",
 													"pm.test(\"Check if correct values are returned\", function () {\r",
 													"    var jsonData = pm.response.json();\r",
-													"    var method_feature_id = JSON.parse(pm.collectionVariables.get(\"method_feature_id\"))\r",
-													"    var method_id =JSON.parse(pm.collectionVariables.get(\"method_id\"))\r",
-													"    var score = pm.collectionVariables.get(\"score\")\r",
-													"    // console.log(id)\r",
+													"    pm.environment.set('method_feature_id',83)\r",
+													"    pm.environment.set('method_id',64)\r",
+													"    var method_feature_id = JSON.parse(pm.environment.get(\"method_feature_id\"))\r",
+													"    var method_id =JSON.parse(pm.environment.get(\"method_id\"))\r",
 													"    pm.expect(jsonData.data[0].method_feature_id).to.eql(method_feature_id);\r",
 													"    pm.expect(jsonData.data[0].method_id).to.eql(method_id); \r",
-													"    pm.expect(jsonData.data[0].score).to.eql(score); \r",
 													"});\r",
 													"\r",
 													"\r",
@@ -7834,221 +7833,221 @@
 	],
 	"variable": [
 		{
-			"id": "8eca2f4d-eb84-44a0-b725-981ae2d7b8fe",
+			"id": "c5fc6657-8170-48d6-b6ab-683f16de438b",
 			"key": "baseUrl",
 			"value": "{{base_url}}/api"
 		},
 		{
-			"id": "bbcfbf17-fe27-47af-9ac9-515efc2e0fd7",
+			"id": "eabe9475-2800-49a2-ae80-2a93c83ca857",
 			"key": "specimenschema",
 			"value": ""
 		},
 		{
-			"id": "9e09d819-c560-4756-883f-798258cfa053",
+			"id": "fc8a1a28-5825-4de0-8d1e-5bb9c102a84f",
 			"key": "my_var2",
 			"value": ""
 		},
 		{
-			"id": "f00e8704-0040-4249-9179-b611e0e185ef",
+			"id": "ac83a767-a80b-4446-91d3-1ac2d867c837",
 			"key": "my_var1",
 			"value": ""
 		},
 		{
-			"id": "b5b19158-aa93-4243-a373-7f092c958281",
+			"id": "b8fe3684-7c99-48c8-a1b8-c7c8a3db66c2",
 			"key": "searchstring",
 			"value": ""
 		},
 		{
-			"id": "418145ea-e25e-4713-95f3-ef496de246ce",
+			"id": "732100bf-0522-409a-83f6-7974eb78f7df",
 			"key": "per_page",
 			"value": ""
 		},
 		{
-			"id": "1e994bd7-0fb9-4abb-a843-4a0a51cca335",
+			"id": "72563d64-4532-4675-b1c6-741d4431466c",
 			"key": "accession_number",
 			"value": ""
 		},
 		{
-			"id": "dfd43e1a-35a6-46c2-ab09-50d1176915cd",
+			"id": "68c442e1-343c-4f65-a4ce-ad39763c9a2c",
 			"key": "specimenschema2",
 			"value": ""
 		},
 		{
-			"id": "5ef39412-31d8-49af-a393-99811e4277d6",
+			"id": "3fbdff94-8089-4be0-9723-e6a838df7a23",
 			"value": ""
 		},
 		{
-			"id": "c993f6e7-e6ed-4cbf-8381-853430fc89f0",
+			"id": "04ef7161-1eba-4072-bfcc-cc5707b907d8",
 			"key": "provenance1",
 			"value": ""
 		},
 		{
-			"id": "5a4b4f6d-e279-4ef2-b97e-272a5b2ddd8d",
+			"id": "5948b950-174d-4052-bc44-1d2bdad8773c",
 			"key": "provenance2",
 			"value": ""
 		},
 		{
-			"id": "b0903bd6-f6f1-49e7-a767-cf0811ee8e76",
+			"id": "53317f94-ac29-4174-b722-89bfcbe14cb3",
 			"key": "measured",
 			"value": ""
 		},
 		{
-			"id": "6c46a361-8aea-4251-9774-6e8d452de97e",
+			"id": "7d65c463-10b9-4434-90f2-34a48fe29af2",
 			"key": "dna_sampled",
 			"value": ""
 		},
 		{
-			"id": "3b7dd221-518b-49ec-a015-94b26f83b455",
+			"id": "05496516-7ad2-407c-b126-736570108399",
 			"key": "ct_scanned",
 			"value": ""
 		},
 		{
-			"id": "7eaf186e-6cd9-4a26-9586-1abe413d405f",
+			"id": "30515c86-2c95-4608-9d39-9e9ddb1e13cd",
 			"key": "ct_scanned_date",
 			"value": ""
 		},
 		{
-			"id": "5f195417-f4e8-47a0-9acc-93f2ab07538d",
+			"id": "6f07f4fb-5fe3-4651-aa52-05f9ee82d2bb",
 			"key": "xray_scanned",
 			"value": ""
 		},
 		{
-			"id": "1cc7b7a8-2be5-4930-931b-8b8dd6808593",
+			"id": "0aafe285-0af5-4f8b-8a8c-bd90c690871a",
 			"key": "xray_scanned_date",
 			"value": ""
 		},
 		{
-			"id": "46983c6f-15c3-4781-8eb0-57d40dab27e5",
+			"id": "10a0a2e2-0f51-4533-bf4c-919b4e745889",
 			"key": "individual_number",
 			"value": ""
 		},
 		{
-			"id": "5ae294e1-464b-4a77-b829-ec6992a2c5d7",
+			"id": "84e029ef-af22-4179-965f-3f7521b995f8",
 			"key": "method_feature_id",
 			"value": ""
 		},
 		{
-			"id": "60212489-43ed-46c0-82f6-a1073fc1a0c8",
+			"id": "636b910a-79e8-4520-8156-4ac73728b81c",
 			"key": "method_id",
 			"value": ""
 		},
 		{
-			"id": "cb8e0c1a-7e8d-4911-a9f9-f1fa30b03982",
+			"id": "b37fa3a6-cc99-40ac-8d1d-bcc1bd414c21",
 			"key": "score",
 			"value": ""
 		},
 		{
-			"id": "5f214c1d-f7bd-45e8-b843-3abf237f8f9a",
+			"id": "b72e4caf-5905-454d-b703-c0263ba93e44",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "6fe9a04d-3222-4442-b4cb-ae2c8714671f",
+			"id": "d7c63765-22ac-4604-988f-f93d7687ec9c",
 			"key": "name",
 			"value": ""
 		},
 		{
-			"id": "93eed311-dc2e-43e0-87bf-98962f0fef7e",
+			"id": "db1304d6-cbd3-42e0-8160-61e1333928e9",
 			"key": "display_name",
 			"value": ""
 		},
 		{
-			"id": "1bd5b90f-ebe6-49db-8669-5345e96dffad",
+			"id": "8a28917d-98cb-4de3-831a-d2fb5af1c460",
 			"key": "display_order",
 			"value": ""
 		},
 		{
-			"id": "ef58e995-bed5-4c69-ac24-e8da83efdcb3",
+			"id": "ea8b4792-8bae-48dc-8df5-f8d4252878c9",
 			"key": "min_value",
 			"value": ""
 		},
 		{
-			"id": "9e300310-5c6b-4b23-a8a5-68f04ec7b464",
+			"id": "b3d85f09-0573-4ea8-b11d-dbe03f52d13f",
 			"key": "max_value",
 			"value": ""
 		},
 		{
-			"id": "1fe1fed1-3508-4ef0-a3cc-ca75c9912aae",
+			"id": "17fcc6a8-b63b-4dcc-b145-bcb23341c8dc",
 			"key": "min_threshold",
 			"value": ""
 		},
 		{
-			"id": "c1367d36-498a-4a00-a6b9-65a78a817ec6",
+			"id": "010f8da2-1cde-4e33-b014-9b259081e1c3",
 			"key": "max_threshold",
 			"value": ""
 		},
 		{
-			"id": "367ceb2f-27c9-4fce-b8e1-2edf638e62a6",
+			"id": "af7b9c03-087f-4a05-ad5a-8a0f74d42aa7",
 			"key": "instrument",
 			"value": ""
 		},
 		{
-			"id": "703fd495-9830-4346-b685-2c5598283927",
+			"id": "689c0c80-8482-4861-940c-a0a1e83bd96c",
 			"key": "description",
 			"value": ""
 		},
 		{
-			"id": "24399a1c-7527-4cda-831c-65059f89a1ce",
+			"id": "8a2ac157-e240-4a1c-81bd-52ed88f0d0ac",
 			"key": "presence",
 			"value": ""
 		},
 		{
-			"id": "ed8b2973-0677-44a9-bdd9-16f2a466cc7c",
+			"id": "97827cd1-0348-4ab2-8129-ce788c6bb442",
 			"key": "branch",
 			"value": ""
 		},
 		{
-			"id": "ca640b8a-6d09-4168-9093-36399417b076",
+			"id": "b59210ba-4cae-42e2-988d-70d88e9935a1",
 			"key": "category",
 			"value": ""
 		},
 		{
-			"id": "42f28c86-beb4-4269-9bf0-22a4c9cc0666",
+			"id": "f3b24cf9-4927-4276-a2b9-e9e4b4b9b269",
 			"key": "morphology_id",
 			"value": ""
 		},
 		{
-			"id": "1cb27dab-5f9f-4c53-8287-fdb7f5823880",
+			"id": "a6a94c37-f908-46c1-b0bb-dfd94f8a87c0",
 			"key": "morphology_name",
 			"value": ""
 		},
 		{
-			"id": "8695d162-8319-46e0-9742-39d2a948e8b7",
+			"id": "53ac892e-f238-4bcf-806d-e5dbd3a224dd",
 			"key": "morphology_key",
 			"value": ""
 		},
 		{
-			"id": "c315de83-7520-4c66-970d-13d927b5f87c",
+			"id": "7c0a73cf-5063-4136-a4c0-c59c01a71685",
 			"key": "refits_id",
 			"value": ""
 		},
 		{
-			"id": "588f7004-7c6d-49b3-9ed4-e299e88f6cf2",
+			"id": "8fca9319-6e56-4a14-88e0-e46eb8ad0975",
 			"key": "refits_name",
 			"value": ""
 		},
 		{
-			"id": "6cfc58c0-e2e5-45c4-95ab-75967f489ea7",
+			"id": "8750df4b-415d-4fb9-98aa-e70480ef0b8e",
 			"key": "refits_key",
 			"value": ""
 		},
 		{
-			"id": "1b8b9ca2-02f9-4c78-9ff9-4f3328692abf",
+			"id": "081a3183-3df9-483a-874d-ecc3ebfea1c6",
 			"key": "pairmatch_id",
 			"value": ""
 		},
 		{
-			"id": "67ca1395-d18b-4397-8380-d84aed68bd7f",
+			"id": "487a5a65-b146-47cd-97b0-3595181e4ba3",
 			"key": "art_id",
 			"value": ""
 		},
 		{
-			"id": "08ec7c3f-8697-494b-940f-efd2638f9ab7",
+			"id": "6a1f2728-a6b2-48ca-8184-3180be8d4c03",
 			"key": "art_name",
 			"value": ""
 		},
 		{
-			"id": "6c9f0d81-c325-464c-89d2-03f4f543ffa5",
+			"id": "04297a1a-fa13-4404-835a-a045c356f11e",
 			"key": "art_key",
 			"value": ""
 		}
