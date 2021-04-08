@@ -874,7 +874,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/api/specimens/{{spec_val}}",
+									"raw": "{{base_url}}/api/specimens/{{spec_val}}?accession_number=CIL 2017-110&designator=204&side=Right&completeness=Complete&measured=true&provenance1=G-01",
 									"host": [
 										"{{base_url}}"
 									],
@@ -882,6 +882,32 @@
 										"api",
 										"specimens",
 										"{{spec_val}}"
+									],
+									"query": [
+										{
+											"key": "accession_number",
+											"value": "CIL 2017-110"
+										},
+										{
+											"key": "designator",
+											"value": "204"
+										},
+										{
+											"key": "side",
+											"value": "Right"
+										},
+										{
+											"key": "completeness",
+											"value": "Complete"
+										},
+										{
+											"key": "measured",
+											"value": "true"
+										},
+										{
+											"key": "provenance1",
+											"value": "G-01"
+										}
 									]
 								}
 							},
@@ -5846,221 +5872,221 @@
 	],
 	"variable": [
 		{
-			"id": "437937c4-50a6-40ea-a195-7c14f98f8395",
+			"id": "69fe6be0-69e6-42c4-a6a3-75822bd83669",
 			"key": "baseUrl",
 			"value": "{{base_url}}/api"
 		},
 		{
-			"id": "aef5ba04-8dda-4816-b074-965df743e4e3",
+			"id": "87c32853-6584-4cb8-bcbf-caab5336173b",
 			"key": "specimenschema",
 			"value": ""
 		},
 		{
-			"id": "f5034ac7-3116-4b04-a5b4-128f56ffdff1",
+			"id": "0dacaa17-7a1f-4be7-84e8-5ad3b24974c8",
 			"key": "my_var2",
 			"value": ""
 		},
 		{
-			"id": "9e1ff2a3-52b1-4a3c-8bc3-1fba71d0f69b",
+			"id": "5cbdeb1a-0c65-4666-a658-17b6632277f1",
 			"key": "my_var1",
 			"value": ""
 		},
 		{
-			"id": "04bf88f8-0ca1-438d-b8c4-7330b7e317da",
+			"id": "0c7da644-3cd9-459e-ae62-d335af9bbbd5",
 			"key": "searchstring",
 			"value": ""
 		},
 		{
-			"id": "2ac7bf77-a363-4b1d-a384-a5c12dbeca90",
+			"id": "d9f4100a-d46c-4066-a153-ce00e85678db",
 			"key": "per_page",
 			"value": ""
 		},
 		{
-			"id": "73192247-fd76-40d0-bacf-f6fe0bb99228",
+			"id": "664cae1f-ade7-45a4-8a14-5d40b19c0901",
 			"key": "accession_number",
 			"value": ""
 		},
 		{
-			"id": "5d45c46c-3fb0-4172-8f10-d8daa83ade00",
+			"id": "5e6fdf63-134c-41f4-8ef3-afc22f94bdfc",
 			"key": "specimenschema2",
 			"value": ""
 		},
 		{
-			"id": "9876334d-e647-476b-806d-88cc331c651c",
+			"id": "d83d81b1-7d93-4a58-a5a5-6164d309df91",
 			"value": ""
 		},
 		{
-			"id": "b954a735-9db5-42b2-9f60-ccd202c0f049",
+			"id": "7d4d06bc-3355-46f3-a713-ba09127a69ba",
 			"key": "provenance1",
 			"value": ""
 		},
 		{
-			"id": "769574f6-4af8-4149-b0aa-d3e1220e949b",
+			"id": "348294ca-6178-4d13-af5d-ea730b8cf30c",
 			"key": "provenance2",
 			"value": ""
 		},
 		{
-			"id": "e5839d5c-1f03-4440-97f3-03e7b211b38e",
+			"id": "6638d5d3-43c7-4994-ac02-36da2d11e859",
 			"key": "measured",
 			"value": ""
 		},
 		{
-			"id": "7459c6c7-fc91-4095-a298-d53c75b54d81",
+			"id": "aa066600-9ba2-4f8d-8bd8-426d6dd90da8",
 			"key": "dna_sampled",
 			"value": ""
 		},
 		{
-			"id": "a8aac80e-83d2-488c-9267-b0d8374ca271",
+			"id": "a52e5a3f-2e44-4d47-a2b0-504a093daef4",
 			"key": "ct_scanned",
 			"value": ""
 		},
 		{
-			"id": "338cdad7-c4d0-4b39-a875-b55e7a6e96b4",
+			"id": "ec099c3c-9c4c-41da-89a5-d809c87b31df",
 			"key": "ct_scanned_date",
 			"value": ""
 		},
 		{
-			"id": "188869d9-f273-4fc1-a37a-6bbf6cf3964e",
+			"id": "5aed79ca-3c0e-4b35-ab9a-4dc2bdd60fb9",
 			"key": "xray_scanned",
 			"value": ""
 		},
 		{
-			"id": "8ae7c858-b74e-468e-94c5-5ff29707ae1e",
+			"id": "49b8eb8e-6567-4452-85d1-4828c444b03a",
 			"key": "xray_scanned_date",
 			"value": ""
 		},
 		{
-			"id": "df5ded76-0aaa-4179-809c-a04318ee7214",
+			"id": "9e87ee02-0c93-421f-bf4a-0dafe3d42316",
 			"key": "individual_number",
 			"value": ""
 		},
 		{
-			"id": "b5c10029-987c-4e6d-88bd-5879d6f0e0cd",
+			"id": "a43375b2-f7f9-46a5-b77e-424ddea3f6f3",
 			"key": "method_feature_id",
 			"value": ""
 		},
 		{
-			"id": "dc933282-2bc5-4d65-a6b9-78093686a5d1",
+			"id": "5ef5d5e2-e9a4-49eb-a3df-3f12ff85ea4f",
 			"key": "method_id",
 			"value": ""
 		},
 		{
-			"id": "ddb504bb-f434-4fcf-a92c-0fb60bd98bdf",
+			"id": "2b8c9dd0-a19b-459a-85b3-9ea218b0bae2",
 			"key": "score",
 			"value": ""
 		},
 		{
-			"id": "1c4cc471-b054-414a-ba7b-a99e8f6ee36d",
+			"id": "3064a1de-1bfe-4c2e-9e81-b377e4dafaa1",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "ef957469-3505-41fa-87a5-dd2df0d93f66",
+			"id": "c0774b09-cc9e-49f8-ab6c-c553c833950c",
 			"key": "name",
 			"value": ""
 		},
 		{
-			"id": "1389870f-86c4-4244-9d81-1c4aa67f07f6",
+			"id": "3a14e93f-71c4-4f69-ba03-0e3842a84801",
 			"key": "display_name",
 			"value": ""
 		},
 		{
-			"id": "031073e3-3050-4bee-8626-db8a022dbbeb",
+			"id": "2b19937e-46f8-4d64-84f8-e104c4309acb",
 			"key": "display_order",
 			"value": ""
 		},
 		{
-			"id": "f83d32f9-9653-49b2-91e4-18cbf0a472b0",
+			"id": "17bc766d-b0aa-4af2-ab6e-8c3c758845b4",
 			"key": "min_value",
 			"value": ""
 		},
 		{
-			"id": "cf19bba2-47e2-4f5d-98c7-b388f14ada49",
+			"id": "26757f58-103b-44fe-a2cb-d4f420042a78",
 			"key": "max_value",
 			"value": ""
 		},
 		{
-			"id": "a8ba98f6-9d76-4b0f-81fc-1c512b8644f4",
+			"id": "fba9259a-378b-44bb-b5d7-2cc6360f7c4a",
 			"key": "min_threshold",
 			"value": ""
 		},
 		{
-			"id": "bc640a3b-6e02-4b7d-8d58-1649dff42fdb",
+			"id": "f2b431d4-fa3b-43e0-963b-ef239e18d92d",
 			"key": "max_threshold",
 			"value": ""
 		},
 		{
-			"id": "f3876fad-3f05-4a09-b1bd-dedb414a46f5",
+			"id": "ddabbc26-9c32-4eae-b484-e797e35f7507",
 			"key": "instrument",
 			"value": ""
 		},
 		{
-			"id": "8fa11b18-e75d-46a5-a965-a899c495a335",
+			"id": "f907dd24-11b2-4382-8930-f8faebb4b07b",
 			"key": "description",
 			"value": ""
 		},
 		{
-			"id": "d90b9a58-1f48-4487-a4f5-7f8230f01fec",
+			"id": "095ed0ec-de33-4e14-8683-42af9af7028d",
 			"key": "presence",
 			"value": ""
 		},
 		{
-			"id": "bbd1256b-b56d-443d-8f0b-03411314b387",
+			"id": "6c69f357-00f7-4624-b042-1751dd73298a",
 			"key": "branch",
 			"value": ""
 		},
 		{
-			"id": "baee76c8-ec35-4bfc-9767-30118779b7a9",
+			"id": "4874688f-cc3f-4b8a-83fd-5bbb3d6d96d0",
 			"key": "category",
 			"value": ""
 		},
 		{
-			"id": "2f262b2d-13cd-47a9-aecb-b5ff78b83c2d",
+			"id": "42d4862a-8416-473f-848b-4b60cd1b70d4",
 			"key": "morphology_id",
 			"value": ""
 		},
 		{
-			"id": "9b466e93-e056-4be1-8937-6cb6975ff70f",
+			"id": "8366bcf3-f49c-44e4-9979-11f16eb9d0d1",
 			"key": "morphology_name",
 			"value": ""
 		},
 		{
-			"id": "07b016e6-4f56-4a8b-b262-971959712549",
+			"id": "5b7f6561-2f12-4a27-ac5a-7c8c7d60b03a",
 			"key": "morphology_key",
 			"value": ""
 		},
 		{
-			"id": "7ab2eb0a-df22-48e4-9b73-c53f26d654cc",
+			"id": "8982b0fa-7679-4c35-a12a-915db375acd1",
 			"key": "refits_id",
 			"value": ""
 		},
 		{
-			"id": "62dd4e13-240d-4bf8-8c0f-60bf79add9ef",
+			"id": "b613dd6d-05d4-45db-bc56-9d602cfe1c7f",
 			"key": "refits_name",
 			"value": ""
 		},
 		{
-			"id": "cf552835-bbcb-4001-9dbc-982d37ba34a5",
+			"id": "3ee03094-1cf9-440d-a472-426d9efaef43",
 			"key": "refits_key",
 			"value": ""
 		},
 		{
-			"id": "6ec8a33f-efd3-466a-af97-e148b86958ed",
+			"id": "2639afd1-3539-41e2-afd8-371aec587689",
 			"key": "pairmatch_id",
 			"value": ""
 		},
 		{
-			"id": "4a63b4b4-487a-47d9-9c9f-3127f2b10e49",
+			"id": "f4ddeac0-8c16-4495-aba9-388911d59d2b",
 			"key": "art_id",
 			"value": ""
 		},
 		{
-			"id": "c4c53a8f-5639-4899-b355-6ed217e6508e",
+			"id": "fdc5181b-f90a-42ae-a54d-a764d689eb72",
 			"key": "art_name",
 			"value": ""
 		},
 		{
-			"id": "65d00100-f1f4-445c-ac65-1674b6fd4811",
+			"id": "80acd860-2222-4b4f-89b5-d3ca3317393b",
 			"key": "art_key",
 			"value": ""
 		}
