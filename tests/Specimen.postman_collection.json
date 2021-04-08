@@ -784,34 +784,36 @@
 											"    \r",
 											"});\r",
 											"}\r",
+											"if(statusCode == 200){\r",
 											"pm.test(\"Saving the returned values\", function () {\r",
 											"    var jsonData = pm.response.json();\r",
 											"    var provenance1 = jsonData.data.provenance1\r",
-											"    pm.collectionVariables.set(\"provenance1\", provenance1)\r",
+											"    pm.environment.set(\"provenance1\", provenance1)\r",
 											"    pm.expect(jsonData.data.provenance1).to.eql(provenance1);\r",
 											"    });\r",
 											"\r",
-											"\r",
+											"}\r",
+											"if(statusCode == 200){\r",
 											"pm.test(\"Saving the returned values\", function () {\r",
 											"    var jsonData = pm.response.json();\r",
 											"    var provenance1 = jsonData.data.provenance1\r",
-											"    pm.collectionVariables.set(\"provenance1\", provenance1)\r",
+											"    pm.environment.set(\"provenance1\", provenance1)\r",
 											"    var provenance2 = jsonData.data.provenance2\r",
-											"    pm.collectionVariables.set(\"provenance2\",provenance2)\r",
+											"    pm.environment.set(\"provenance2\",provenance2)\r",
 											"    var measured = jsonData.data.measured\r",
-											"    pm.collectionVariables.set(\"measured\",measured)\r",
+											"    pm.environment.set(\"measured\",measured)\r",
 											"    var dna_sampled = jsonData.data.dna_sampled\r",
-											"    pm.collectionVariables.set(\"dna_sampled\",dna_sampled)\r",
+											"    pm.environment.set(\"dna_sampled\",dna_sampled)\r",
 											"    var ct_scanned = jsonData.data.ct_scanned\r",
-											"    pm.collectionVariables.set(\"ct_scanned\",ct_scanned)\r",
+											"    pm.environment.set(\"ct_scanned\",ct_scanned)\r",
 											"    var ct_scanned_date = jsonData.data.ct_scanned_date\r",
-											"    pm.collectionVariables.set(\"ct_scanned_date\",ct_scanned_date)\r",
+											"    pm.environment.set(\"ct_scanned_date\",ct_scanned_date)\r",
 											"    var xray_scanned = jsonData.data.xray_scanned\r",
-											"    pm.collectionVariables.set(\"xray_scanned\",xray_scanned)\r",
+											"    pm.environment.set(\"xray_scanned\",xray_scanned)\r",
 											"    var xray_scanned_date = jsonData.data.xray_scanned_date\r",
-											"    pm.collectionVariables.set(\"xray_scanned_date\",xray_scanned_date)\r",
+											"    pm.environment.set(\"xray_scanned_date\",xray_scanned_date)\r",
 											"    var individual_number = jsonData.data.individual_number\r",
-											"    pm.collectionVariables.set(\"individual_number\",individual_number)\r",
+											"    pm.environment.set(\"individual_number\",individual_number)\r",
 											"    pm.expect(jsonData.data.provenance1).to.eql(provenance1);\r",
 											"    pm.expect(jsonData.data.provenance2).to.eql(provenance2);\r",
 											"    pm.expect(jsonData.data.measured).to.eql(measured);\r",
@@ -822,14 +824,16 @@
 											"    pm.expect(jsonData.data.xray_scanned_date).to.eql(xray_scanned_date); \r",
 											"    pm.expect(jsonData.data.individual_number).to.eql(individual_number); \r",
 											"});\r",
+											"}\r",
 											"\r",
-											"\r",
+											"if(statusCode == 200){\r",
 											"\r",
 											"pm.test(\"response must be valid and have a body\", function () {\r",
 											"     pm.response.to.be.ok;\r",
 											"     pm.response.to.be.withBody;\r",
 											"     pm.response.to.be.json;\r",
-											"});"
+											"});\r",
+											"}"
 										],
 										"type": "text/javascript"
 									}
@@ -5842,221 +5846,221 @@
 	],
 	"variable": [
 		{
-			"id": "fffe62ce-ddca-4d37-bb85-4af5477f8506",
+			"id": "437937c4-50a6-40ea-a195-7c14f98f8395",
 			"key": "baseUrl",
 			"value": "{{base_url}}/api"
 		},
 		{
-			"id": "fd747472-552b-4f0a-bf2d-04c5c8035270",
+			"id": "aef5ba04-8dda-4816-b074-965df743e4e3",
 			"key": "specimenschema",
 			"value": ""
 		},
 		{
-			"id": "5fdc3be0-4bba-43fe-a61a-271e1621dbd4",
+			"id": "f5034ac7-3116-4b04-a5b4-128f56ffdff1",
 			"key": "my_var2",
 			"value": ""
 		},
 		{
-			"id": "3db78a2c-f1d2-4032-a799-4f28e6ce6e8f",
+			"id": "9e1ff2a3-52b1-4a3c-8bc3-1fba71d0f69b",
 			"key": "my_var1",
 			"value": ""
 		},
 		{
-			"id": "40fb68e9-0267-435c-8ef1-70cee39b3c7b",
+			"id": "04bf88f8-0ca1-438d-b8c4-7330b7e317da",
 			"key": "searchstring",
 			"value": ""
 		},
 		{
-			"id": "d8595d6a-f857-4f16-aa69-7051bf646c82",
+			"id": "2ac7bf77-a363-4b1d-a384-a5c12dbeca90",
 			"key": "per_page",
 			"value": ""
 		},
 		{
-			"id": "e9206544-1cc6-485a-92b3-44258508ca18",
+			"id": "73192247-fd76-40d0-bacf-f6fe0bb99228",
 			"key": "accession_number",
 			"value": ""
 		},
 		{
-			"id": "79175b48-29f4-4cbc-b765-d4a1d882b96a",
+			"id": "5d45c46c-3fb0-4172-8f10-d8daa83ade00",
 			"key": "specimenschema2",
 			"value": ""
 		},
 		{
-			"id": "6c4ac6d0-5cb1-405f-9647-b7f0a65d2429",
+			"id": "9876334d-e647-476b-806d-88cc331c651c",
 			"value": ""
 		},
 		{
-			"id": "11c8b95a-cfea-4d6a-b9bb-6a793d327d90",
+			"id": "b954a735-9db5-42b2-9f60-ccd202c0f049",
 			"key": "provenance1",
 			"value": ""
 		},
 		{
-			"id": "97b512f3-2a88-4191-9f35-16138f0c1236",
+			"id": "769574f6-4af8-4149-b0aa-d3e1220e949b",
 			"key": "provenance2",
 			"value": ""
 		},
 		{
-			"id": "beb5355f-cf55-4160-9252-86c210b29489",
+			"id": "e5839d5c-1f03-4440-97f3-03e7b211b38e",
 			"key": "measured",
 			"value": ""
 		},
 		{
-			"id": "0ce50e3e-5db9-4e11-bd7d-27e224e6656e",
+			"id": "7459c6c7-fc91-4095-a298-d53c75b54d81",
 			"key": "dna_sampled",
 			"value": ""
 		},
 		{
-			"id": "7368efcd-806a-4d6d-b022-1c0ea8c9a3aa",
+			"id": "a8aac80e-83d2-488c-9267-b0d8374ca271",
 			"key": "ct_scanned",
 			"value": ""
 		},
 		{
-			"id": "3a7ae994-389a-41b9-9110-0a0563a12f7f",
+			"id": "338cdad7-c4d0-4b39-a875-b55e7a6e96b4",
 			"key": "ct_scanned_date",
 			"value": ""
 		},
 		{
-			"id": "adddc4c9-470b-44e0-8bc3-eb238282979e",
+			"id": "188869d9-f273-4fc1-a37a-6bbf6cf3964e",
 			"key": "xray_scanned",
 			"value": ""
 		},
 		{
-			"id": "7a5c6b9e-6f2d-4014-8c37-019c632d073b",
+			"id": "8ae7c858-b74e-468e-94c5-5ff29707ae1e",
 			"key": "xray_scanned_date",
 			"value": ""
 		},
 		{
-			"id": "0180245c-7975-42f5-8338-75c797632d95",
+			"id": "df5ded76-0aaa-4179-809c-a04318ee7214",
 			"key": "individual_number",
 			"value": ""
 		},
 		{
-			"id": "a37d339e-ad27-4073-a5c4-241e8235dd2b",
+			"id": "b5c10029-987c-4e6d-88bd-5879d6f0e0cd",
 			"key": "method_feature_id",
 			"value": ""
 		},
 		{
-			"id": "a9c0549e-01bb-4b9e-ba87-b5e466c6f7dd",
+			"id": "dc933282-2bc5-4d65-a6b9-78093686a5d1",
 			"key": "method_id",
 			"value": ""
 		},
 		{
-			"id": "55b669f7-2f07-47de-909a-0848c39f0767",
+			"id": "ddb504bb-f434-4fcf-a92c-0fb60bd98bdf",
 			"key": "score",
 			"value": ""
 		},
 		{
-			"id": "880533ad-300e-40ee-bec1-fbbb10c049a0",
+			"id": "1c4cc471-b054-414a-ba7b-a99e8f6ee36d",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "bc121c04-456e-4b62-8a25-7a26cafd6fd0",
+			"id": "ef957469-3505-41fa-87a5-dd2df0d93f66",
 			"key": "name",
 			"value": ""
 		},
 		{
-			"id": "49dfc590-b05b-4da3-aba5-0839fa9c361e",
+			"id": "1389870f-86c4-4244-9d81-1c4aa67f07f6",
 			"key": "display_name",
 			"value": ""
 		},
 		{
-			"id": "4d271063-f4d6-4f02-8164-aa8ab8f8721b",
+			"id": "031073e3-3050-4bee-8626-db8a022dbbeb",
 			"key": "display_order",
 			"value": ""
 		},
 		{
-			"id": "91f72177-3422-4031-bb7a-11217ec0da5d",
+			"id": "f83d32f9-9653-49b2-91e4-18cbf0a472b0",
 			"key": "min_value",
 			"value": ""
 		},
 		{
-			"id": "39d06f6e-61be-4081-a2a3-0271ba7ca946",
+			"id": "cf19bba2-47e2-4f5d-98c7-b388f14ada49",
 			"key": "max_value",
 			"value": ""
 		},
 		{
-			"id": "0a3c0975-5bc7-4eca-aa7e-afed561e8dc6",
+			"id": "a8ba98f6-9d76-4b0f-81fc-1c512b8644f4",
 			"key": "min_threshold",
 			"value": ""
 		},
 		{
-			"id": "486ba4ad-898d-4ad9-8697-856d2c544b45",
+			"id": "bc640a3b-6e02-4b7d-8d58-1649dff42fdb",
 			"key": "max_threshold",
 			"value": ""
 		},
 		{
-			"id": "58f8b8c2-553e-4b95-b055-a5e1ab62d0c6",
+			"id": "f3876fad-3f05-4a09-b1bd-dedb414a46f5",
 			"key": "instrument",
 			"value": ""
 		},
 		{
-			"id": "cc175188-173a-451f-afa9-e2fc381f47c3",
+			"id": "8fa11b18-e75d-46a5-a965-a899c495a335",
 			"key": "description",
 			"value": ""
 		},
 		{
-			"id": "078f13ba-c5cf-4a5f-8e13-25fd17a2fb09",
+			"id": "d90b9a58-1f48-4487-a4f5-7f8230f01fec",
 			"key": "presence",
 			"value": ""
 		},
 		{
-			"id": "ac7d4b3e-1bcf-43bb-b8e9-400ece4295f3",
+			"id": "bbd1256b-b56d-443d-8f0b-03411314b387",
 			"key": "branch",
 			"value": ""
 		},
 		{
-			"id": "2098ad62-bece-45e1-a11c-4c4805eab517",
+			"id": "baee76c8-ec35-4bfc-9767-30118779b7a9",
 			"key": "category",
 			"value": ""
 		},
 		{
-			"id": "79168692-0411-423e-8365-86ce89c70c05",
+			"id": "2f262b2d-13cd-47a9-aecb-b5ff78b83c2d",
 			"key": "morphology_id",
 			"value": ""
 		},
 		{
-			"id": "c8c51451-c3b6-4fb8-bfd5-0faf0d84a3c1",
+			"id": "9b466e93-e056-4be1-8937-6cb6975ff70f",
 			"key": "morphology_name",
 			"value": ""
 		},
 		{
-			"id": "44466403-6935-49fd-a2dc-1e1d933ae025",
+			"id": "07b016e6-4f56-4a8b-b262-971959712549",
 			"key": "morphology_key",
 			"value": ""
 		},
 		{
-			"id": "1d47994d-c84e-4eab-bc42-4133495dcaf1",
+			"id": "7ab2eb0a-df22-48e4-9b73-c53f26d654cc",
 			"key": "refits_id",
 			"value": ""
 		},
 		{
-			"id": "8da70d72-be17-448e-85b4-aa282cf11bf3",
+			"id": "62dd4e13-240d-4bf8-8c0f-60bf79add9ef",
 			"key": "refits_name",
 			"value": ""
 		},
 		{
-			"id": "06001403-6098-440a-9d06-5dc4ae4f4157",
+			"id": "cf552835-bbcb-4001-9dbc-982d37ba34a5",
 			"key": "refits_key",
 			"value": ""
 		},
 		{
-			"id": "434dbf88-9e7e-4aa6-a134-c32784b7694e",
+			"id": "6ec8a33f-efd3-466a-af97-e148b86958ed",
 			"key": "pairmatch_id",
 			"value": ""
 		},
 		{
-			"id": "c09b0a0c-24c4-4031-9935-1ac40aece180",
+			"id": "4a63b4b4-487a-47d9-9c9f-3127f2b10e49",
 			"key": "art_id",
 			"value": ""
 		},
 		{
-			"id": "12c5b7f5-d9be-4d90-8eee-18a3bfeb1146",
+			"id": "c4c53a8f-5639-4899-b355-6ed217e6508e",
 			"key": "art_name",
 			"value": ""
 		},
 		{
-			"id": "18b52e24-8f7c-46d2-a138-0b5ba2385800",
+			"id": "65d00100-f1f4-445c-ac65-1674b6fd4811",
 			"key": "art_key",
 			"value": ""
 		}
