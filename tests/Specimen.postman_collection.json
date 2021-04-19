@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "03747cf5-0124-40ff-97ad-3cfc355a845f",
-		"name": "Specimen - API",
+		"name": "Specimen",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -5424,13 +5424,7 @@
 													"",
 													"var token = pm.globals.get(\"token\");",
 													"",
-													"if (token.length > 0) {",
-													"    postman.setNextRequest(\"Negative Edit Morphology Token\")",
 													"",
-													"} else {",
-													"    pm.globals.unset(\"token\")",
-													"   ",
-													"}",
 													"",
 													"pm.test(\"Check unauthorized message\", function () {",
 													"    var jsonData = pm.response.json();",
@@ -5856,13 +5850,6 @@
 													"",
 													"var token = pm.globals.get(\"token\");",
 													"",
-													"if (token.length > 0) {",
-													"    postman.setNextRequest(\"Edit Pathology token\")",
-													"",
-													"} else {",
-													"    pm.globals.unset(\"token\")",
-													"   ",
-													"}",
 													"",
 													"pm.test(\"Check unauthorized message\", function () {",
 													"    var jsonData = pm.response.json();",
@@ -6323,23 +6310,7 @@
 											"    pm.expect(jsonData.data[0]).to.have.property(\"model_class\");",
 											"});",
 											"",
-											"pm.test(\"Saving the returned values\", function () {",
-											"    var jsonData = pm.response.json();",
-											"    var morphology_id = jsonData.data[0].id;",
-											"    pm.collectionVariables.set(\"morphology_id\", morphology_id)",
-											"    var morphology_name = jsonData.data[0].name",
-											"    pm.collectionVariables.set(\"morphology_name\",morphology_name)",
-											"    var morphology_key = jsonData.data[0].key",
-											"    pm.collectionVariables.set(\"morphology_key\",morphology_key)",
-											"    //var key_bone_side = jsonData.data[0].key_bone_side",
-											"    //pm.collectionVariables.set(\"key_bone_side\",key_bone_side)",
-											"    pm.expect(jsonData.data[0].id).to.eql(morphology_id);",
-											"    pm.expect(jsonData.data[0].name).to.eql(morphology_name);",
-											"    pm.expect(jsonData.data[0].key).to.eql(morphology_key);",
-											"    //pm.expect(jsonData.data[0].key_bone_side).to.eql(key_bone_side);",
 											"",
-											"    pm.expect(jsonData.message).to.eql(\"Specimen associations updated successful\");",
-											"    });",
 											""
 										],
 										"type": "text/javascript"
@@ -6543,27 +6514,7 @@
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");",
 											"});",
 											"",
-											"pm.test(\"Check if correct values are returned\", function () {",
-											"    var jsonData = pm.response.json();",
-											"    var morphology_id = jsonData.data[0].id",
-											"    pm.collectionVariables.get(\"morphology_id\", morphology_id)",
-											"    var morphology_name = jsonData.data[0].name",
-											"    pm.collectionVariables.get(\"morphology_name\",morphology_name)",
-											"    var morphology_key = jsonData.data[0].key",
-											"    pm.collectionVariables.get(\"morphology_key\",morphology_key)",
-											"    // var mophology_key_bone_side = jsonData.data[0].key_bone_side",
-											"    // pm.collectionVariables.get(\"morphology_key_bone_side\")",
-											"    // var mophology_model_class = jsonData.data[0].model_class",
-											"    // pm.collectionVariables.get(\"morphology_model_class\")",
-											"    pm.expect(jsonData.data[0].id).to.eql(morphology_id);",
-											"    pm.expect(jsonData.data[0].name).to.eql(morphology_name);",
-											"    pm.expect(jsonData.data[0].key).to.eql(morphology_key); ",
-											"    // pm.expect(jsonData.data[0].key_bone_side).to.eql(morphology_key_bone_side);",
-											"    // pm.expect(jsonData.data[0].model_class).to.eql(morphology_model_class);  ",
-											"    pm.expect(jsonData.meta.total) >= 0; ",
-											"    pm.expect(jsonData.specimen.sb.articulated).to.eql(true); ",
-											"    pm.expect(jsonData.message).to.eql(\"Specimen associations get successful\"); ",
-											"});",
+											"",
 											"",
 											"",
 											""
@@ -6782,22 +6733,6 @@
 											"pm.expect(jsonData.data[0]).to.have.property(\"model_class\");",
 											"});",
 											"",
-											"pm.test(\"Saving the returned values\", function () { ",
-											"    var jsonData = pm.response.json();",
-											"    var refits_id = jsonData.data[0].id;",
-											"    pm.collectionVariables.set(\"refits_id\", refits_id)",
-											"    var refits_name = jsonData.data[0].name",
-											"    pm.collectionVariables.set(\"refits_name\",refits_name)",
-											"    var refits_key = jsonData.data[0].key",
-											"    pm.collectionVariables.set(\"refits_key\",refits_key)",
-											"    //var key_bone_side = jsonData.data[0].key_bone_side",
-											"    //pm.collectionVariables.set(\"key_bone_side\",key_bone_side)",
-											"    pm.expect(jsonData.data[0].id).to.eql(refits_id);",
-											"    pm.expect(jsonData.data[0].name).to.eql(refits_name);",
-											"    pm.expect(jsonData.data[0].key).to.eql(refits_key);",
-											"    //pm.expect(jsonData.data[0].key_bone_side).to.eql(key_bone_side);",
-											"    pm.expect(jsonData.message).to.eql(\"Specimen associations updated successful\");",
-											"});",
 											""
 										],
 										"type": "text/javascript"
@@ -6994,29 +6929,6 @@
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");",
 											"});",
 											"",
-											"",
-											"pm.test(\"Check if correct values are returned\", function () {",
-											"    var jsonData = pm.response.json();",
-											"    var refits_id = jsonData.data[0].id",
-											"    pm.collectionVariables.get(\"refits_id\", refits_id)",
-											"    var refits_name = jsonData.data[0].name",
-											"    pm.collectionVariables.get(\"refits_name\",refits_name)",
-											"    var refits_key = jsonData.data[0].key",
-											"    pm.collectionVariables.get(\"refits_key\",refits_key)",
-											"    // var refits_key_bone_side = jsonData.data[0].key_bone_side",
-											"    // pm.collectionVariables.get(\"morphology_key_bone_side\")",
-											"    // var refits_model_class = jsonData.data[0].model_class",
-											"    // pm.collectionVariables.get(\"refits_model_class\")",
-											"    pm.expect(jsonData.data[0].id).to.eql(refits_id);",
-											"    pm.expect(jsonData.data[0].name).to.eql(refits_name);",
-											"    pm.expect(jsonData.data[0].key).to.eql(refits_key);",
-											"    // pm.expect(jsonData.data[0].key_bone_side).to.eql(refits_key_bone_side);",
-											"    // pm.expect(jsonData.data[0].model_class).to.eql(refits_model_class);",
-											"    pm.expect(jsonData.meta.total) >= 0;",
-											"    pm.expect(jsonData.specimen.sb.articulated).to.eql(true);",
-											"    pm.expect(jsonData.message).to.eql(\"Specimen associations get successful\");",
-											"});",
-											"",
 											""
 										],
 										"type": "text/javascript"
@@ -7195,15 +7107,6 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"//This tests checks whether we are able to properly edit a pair match value as specified, and associating it with the correct values;",
-											"",
-											"pm.test(\"Attempt setting collection variables\", function () {",
-											"    var jsonData = pm.response.json();",
-											"    console.log(jsonData)",
-											"    var pairmatch_idlocal = jsonData.data[0].id;",
-											"    pm.collectionVariables.set(\"pairmatch_id\", pairmatch_idlocal)",
-											"});",
-											"",
 											"pm.test(\"response must be valid and have a body\", function () {",
 											"     pm.response.to.be.ok;",
 											"     pm.response.to.be.withBody;",
@@ -7611,28 +7514,7 @@
 											"    pm.expect(jsonData.data[0]).to.have.property(\"model_class\");\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Saving the returned values\", function () {\r",
-											"    var jsonData = pm.response.json();\r",
-											"    var art_id = jsonData.data[0].id\r",
-											"    pm.collectionVariables.set(\"art_id\", art_id)\r",
-											"    var art_name = jsonData.data[0].name\r",
-											"    pm.collectionVariables.set(\"art_name\",art_name)\r",
-											"    var art_key = jsonData.data[0].key\r",
-											"    pm.collectionVariables.set(\"art_key\",art_key)\r",
-											"    // var art_key_bone_side = jsonData.data[0].key_bone_side\r",
-											"    // pm.collectionVariables.set(\"art_key_bone_side\")\r",
-											"    // var art_model_class = jsonData.data[0].model_class\r",
-											"    // pm.collectionVariables.set(\"art_model_class\")\r",
-											"    pm.expect(jsonData.data[0].id).to.eql(art_id);\r",
-											"    pm.expect(jsonData.data[0].name).to.eql(art_name);\r",
-											"    pm.expect(jsonData.data[0].key).to.eql(art_key); \r",
-											"    // pm.expect(jsonData.data[0].key_bone_side).to.eql(art_key_bone_side);\r",
-											"    // pm.expect(jsonData.data[0].model_class).to.eql(art_model_class); \r",
-											"    pm.expect(jsonData.message).to.eql(\"Specimen associations updated successful\");   \r",
-											"});\r",
-											"\r",
-											"\r",
-											"// postman.setNextRequest(\"Get Articulations\");"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -7838,29 +7720,6 @@
 											"pm.test(\"Check response variables\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");\r",
 											"});\r",
-											"\r",
-											"pm.test(\"Check if correct values are returned\", function () {\r",
-											"    var jsonData = pm.response.json();\r",
-											"    var art_id = jsonData.data[0].id\r",
-											"    pm.collectionVariables.get(\"art_id\", art_id)\r",
-											"    var art_name = jsonData.data[0].name\r",
-											"    pm.collectionVariables.get(\"art_name\",art_name)\r",
-											"    var art_key = jsonData.data[0].key\r",
-											"    pm.collectionVariables.get(\"art_key\",art_key)\r",
-											"    // var art_key_bone_side = jsonData.data[0].key_bone_side\r",
-											"    // pm.collectionVariables.get(\"art_key_bone_side\")\r",
-											"    // var art_model_class = jsonData.data[0].model_class\r",
-											"    // pm.collectionVariables.get(\"art_model_class\")\r",
-											"    pm.expect(jsonData.data[0].id).to.eql(art_id);\r",
-											"    pm.expect(jsonData.data[0].name).to.eql(art_name);\r",
-											"    pm.expect(jsonData.data[0].key).to.eql(art_key); \r",
-											"    // pm.expect(jsonData.data[0].key_bone_side).to.eql(art_key_bone_side);\r",
-											"    // pm.expect(jsonData.data[0].model_class).to.eql(art_model_class);  \r",
-											"    pm.expect(jsonData.meta.total) >= 0; \r",
-											"    pm.expect(jsonData.specimen.sb.articulated).to.eql(true); \r",
-											"    pm.expect(jsonData.message).to.eql(\"Specimen associations get successful\"); \r",
-											"});\r",
-											"\r",
 											"\r",
 											""
 										],
@@ -8115,30 +7974,6 @@
 											"pm.test(\"Check response variables\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");\r",
 											"});\r",
-											"\r",
-											"pm.test(\"Check if correct values are returned\", function () {\r",
-											"    var jsonData = pm.response.json();\r",
-											"    var morphology_id = jsonData.data[0].id\r",
-											"    pm.environment.get(\"morphology_id\", morphology_id)\r",
-											"    var morphology_name = jsonData.data[0].name\r",
-											"    pm.environment.get(\"morphology_name\",morphology_name)\r",
-											"    var morphology_key = jsonData.data[0].key\r",
-											"    pm.environment.get(\"morphology_key\",morphology_key)\r",
-											"    // var mophology_key_bone_side = jsonData.data[0].key_bone_side\r",
-											"    // pm.collectionVariables.get(\"morphology_key_bone_side\")\r",
-											"    // var mophology_model_class = jsonData.data[0].model_class\r",
-											"    // pm.collectionVariables.get(\"morphology_model_class\")\r",
-											"    pm.expect(jsonData.data[0].id).to.eql(morphology_id);\r",
-											"    pm.expect(jsonData.data[0].name).to.eql(morphology_name);\r",
-											"    pm.expect(jsonData.data[0].key).to.eql(morphology_key); \r",
-											"    // pm.expect(jsonData.data[0].key_bone_side).to.eql(morphology_key_bone_side);\r",
-											"    // pm.expect(jsonData.data[0].model_class).to.eql(morphology_model_class);  \r",
-											"    pm.expect(jsonData.meta.total) >= 0; \r",
-											"    pm.expect(jsonData.specimen.sb.articulated).to.eql(true); \r",
-											"    pm.expect(jsonData.message).to.eql(\"Specimen associations get successful\"); \r",
-											"});\r",
-											"\r",
-											"\r",
 											""
 										],
 										"type": "text/javascript"
@@ -9040,2131 +8875,2227 @@
 				},
 				{
 					"name": "specimen review",
-					"item": []
-				},
-				{
-					"name": "Save",
 					"item": [
 						{
-							"name": "save-General",
-							"event": [
+							"name": "Save",
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
+									"name": "save-General",
+									"event": [
 										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
 										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"se_id\":1266,\r\n    \"type\": \"general\",\r\n    \"original\":{  \"sb_id\":77,\"side\": \"Right\", \"completeness\": \"Complete\", \"mass\":null,\"count\":null},\r\n    \"review\": {  \"sb_id\":215,\"side\": \"Left\", \"completeness\": \"Complete\", \"mass\":null,\"count\":null }\r\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
 									},
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"se_id\":1266,\r\n    \"type\": \"general\",\r\n    \"original\":{  \"sb_id\":77,\"side\": \"Right\", \"completeness\": \"Complete\", \"mass\":null,\"count\":null},\r\n    \"review\": {  \"sb_id\":215,\"side\": \"Left\", \"completeness\": \"Complete\", \"mass\":null,\"count\":null }\r\n}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-Biological Profile",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
+									"response": []
 								},
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
+									"name": "save-Biological Profile",
+									"event": [
 										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
 										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n     \"se_id\":1266,\r\n    \"type\":\"methods\",\r\n    \"original\":{\"methods\":{\"76\":{\"features\":{\"169\":{\"score\":\"5\"},\"170\":{\"score\":\"2\"},\"171\":{\"score\":\"1\"},\"172\":{\"score\":\"8\"}}}}},\r\n    \"review\":{\"methods\":{\"76\":{\"features\":{\"169\":{\"score\":\"3\"},\"170\":{\"score\":\"4\"},\"171\":{\"score\":\"4\"},\"172\":{\"score\":\"4\"}}}}}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
 									},
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n     \"se_id\":1266,\r\n    \"type\":\"methods\",\r\n    \"original\":{\"methods\":{\"76\":{\"features\":{\"169\":{\"score\":\"5\"},\"170\":{\"score\":\"2\"},\"171\":{\"score\":\"1\"},\"172\":{\"score\":\"8\"}}}}},\r\n    \"review\":{\"methods\":{\"76\":{\"features\":{\"169\":{\"score\":\"3\"},\"170\":{\"score\":\"4\"},\"171\":{\"score\":\"4\"},\"172\":{\"score\":\"4\"}}}}}\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Save -Dna-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
+									"response": []
 								},
 								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
+									"name": "Save -Dna-review",
+									"event": [
 										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"se_id\":1266,\"type\":\"dna\",\"original\":{\"id\":441,\"se_id\":1266,\"org_id\":2,\"project_id\":2,\"lab_id\":1,\"external_case_id\":\"2004H0114\",\"priority\":null,\"sample_number\":\"146A\",\"mito_sequence_number\":57,\"mito_sequence_subgroup\":null,\"mito_sequence_similar\":null,\"mito_match_count\":\"1\",\"mito_total_count\":\"10428\",\"mito_receive_date\":\"2009-04-21\",\"mito_haplogroup_id\":null,\"created_by\":\"System\",\"updated_by\":\"Emily Streetman\",\"created_at\":\"2018-04-29 18:50:35\",\"updated_at\":\"2019-03-06 20:30:59\",\"deleted_at\":null,\"analysis_type_id\":null,\"mito_results_confidence\":\"Reportable\",\"mito_method\":\"Sanger\",\"external_sample_number\":null,\"dispostion_of_evidence\":null,\"mito_confirmed_regions\":null,\"mito_base_pairs\":null,\"locus\":null,\"mito_num_loci\":null,\"mito_mcc_date\":null,\"sb_id\":77,\"additional_testing\":false,\"priority_date\":null,\"btb_request_date\":null,\"btb_results_date\":null,\"disposition\":\"Consumed\",\"sample_condition\":null,\"weight_sample_remaining\":null,\"mito_request_date\":null,\"mito_polymorphisms\":null,\"mito_fasta_sequence\":null,\"mito_haplosubgroup\":null,\"austr_method\":null,\"austr_request_date\":null,\"austr_receive_date\":null,\"austr_results_confidence\":null,\"austr_sequence_number\":null,\"austr_sequence_subgroup\":null,\"austr_sequence_similar\":null,\"austr_match_count\":null,\"austr_total_count\":null,\"austr_num_loci\":null,\"austr_loci\":null,\"austr_mcc_date\":null,\"ystr_method\":null,\"ystr_request_date\":null,\"ystr_receive_date\":null,\"ystr_results_confidence\":null,\"ystr_sequence_number\":null,\"ystr_sequence_subgroup\":null,\"ystr_sequence_similar\":null,\"ystr_match_count\":null,\"ystr_total_count\":null,\"ystr_num_loci\":null,\"ystr_loci\":null,\"ystr_haplogroup\":null,\"ystr_haplosubgroup\":null,\"ystr_mcc_date\":null,\"resample_indicator\":false,\"notes\":null,\"uuid\":null,\"user_id\":null,\"custom_field_1\":null,\"custom_field_2\":null,\"custom_field_3\":null},\"review\":{\"id\":441,\"se_id\":1266,\"org_id\":2,\"project_id\":2,\"lab_id\":1,\"external_case_id\":\"2004H0114\",\"priority\":null,\"sample_number\":null,\"mito_sequence_number\":\"59\",\"mito_sequence_subgroup\":\"test\",\"mito_sequence_similar\":\"test\",\"mito_match_count\":\"20\",\"mito_total_count\":\"20\",\"mito_receive_date\":null,\"mito_haplogroup_id\":null,\"created_by\":\"System\",\"updated_by\":null,\"created_at\":\"2018-04-29 18:50:35\",\"updated_at\":null,\"deleted_at\":null,\"analysis_type_id\":null,\"mito_results_confidence\":null,\"mito_method\":\"NGS\",\"external_sample_number\":\"1234\",\"dispostion_of_evidence\":\"yes\",\"mito_confirmed_regions\":\"test\",\"mito_base_pairs\":\"test\",\"locus\":\"test_lucas\",\"mito_num_loci\":\"test\",\"mito_mcc_date\":null,\"sb_id\":77,\"additional_testing\":false,\"priority_date\":null,\"btb_request_date\":null,\"btb_results_date\":null,\"disposition\":null,\"sample_condition\":null,\"weight_sample_remaining\":null,\"mito_request_date\":null,\"mito_polymorphisms\":null,\"mito_fasta_sequence\":\"test\",\"mito_haplosubgroup\":null,\"austr_method\":\"AmpFLSTR Minifiler\",\"austr_request_date\":null,\"austr_receive_date\":null,\"austr_results_confidence\":\"Inconclusive\",\"austr_sequence_number\":\"123\",\"austr_sequence_subgroup\":null,\"austr_sequence_similar\":null,\"austr_match_count\":\"0\",\"austr_total_count\":\"10\",\"austr_num_loci\":\"test\",\"austr_loci\":\"test\",\"austr_mcc_date\":null,\"ystr_method\":\"Y filer\",\"ystr_request_date\":null,\"ystr_receive_date\":null,\"ystr_results_confidence\":\"Reportable\",\"ystr_sequence_number\":\"123\",\"ystr_sequence_subgroup\":\"sample\",\"ystr_sequence_similar\":\"test\",\"ystr_match_count\":\"20\",\"ystr_total_count\":\"10\",\"ystr_num_loci\":\"test\",\"ystr_loci\":\"test\",\"ystr_haplogroup\":null,\"ystr_haplosubgroup\":null,\"ystr_mcc_date\":null,\"resample_indicator\":null,\"notes\":null,\"uuid\":null,\"user_id\":null,\"custom_field_1\":null,\"custom_field_2\":null,\"custom_field_3\":null},\"dna_id\":\"146A\"\r\n}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-Taphonomy",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
 										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
 										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1266,\"type\":\"taphonomys\",\"original\":[],\"review\":[1,2]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
 									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-zones",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
 										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"se_id\":1266,\"type\":\"dna\",\"original\":{\"id\":441,\"se_id\":1266,\"org_id\":2,\"project_id\":2,\"lab_id\":1,\"external_case_id\":\"2004H0114\",\"priority\":null,\"sample_number\":\"146A\",\"mito_sequence_number\":57,\"mito_sequence_subgroup\":null,\"mito_sequence_similar\":null,\"mito_match_count\":\"1\",\"mito_total_count\":\"10428\",\"mito_receive_date\":\"2009-04-21\",\"mito_haplogroup_id\":null,\"created_by\":\"System\",\"updated_by\":\"Emily Streetman\",\"created_at\":\"2018-04-29 18:50:35\",\"updated_at\":\"2019-03-06 20:30:59\",\"deleted_at\":null,\"analysis_type_id\":null,\"mito_results_confidence\":\"Reportable\",\"mito_method\":\"Sanger\",\"external_sample_number\":null,\"dispostion_of_evidence\":null,\"mito_confirmed_regions\":null,\"mito_base_pairs\":null,\"locus\":null,\"mito_num_loci\":null,\"mito_mcc_date\":null,\"sb_id\":77,\"additional_testing\":false,\"priority_date\":null,\"btb_request_date\":null,\"btb_results_date\":null,\"disposition\":\"Consumed\",\"sample_condition\":null,\"weight_sample_remaining\":null,\"mito_request_date\":null,\"mito_polymorphisms\":null,\"mito_fasta_sequence\":null,\"mito_haplosubgroup\":null,\"austr_method\":null,\"austr_request_date\":null,\"austr_receive_date\":null,\"austr_results_confidence\":null,\"austr_sequence_number\":null,\"austr_sequence_subgroup\":null,\"austr_sequence_similar\":null,\"austr_match_count\":null,\"austr_total_count\":null,\"austr_num_loci\":null,\"austr_loci\":null,\"austr_mcc_date\":null,\"ystr_method\":null,\"ystr_request_date\":null,\"ystr_receive_date\":null,\"ystr_results_confidence\":null,\"ystr_sequence_number\":null,\"ystr_sequence_subgroup\":null,\"ystr_sequence_similar\":null,\"ystr_match_count\":null,\"ystr_total_count\":null,\"ystr_num_loci\":null,\"ystr_loci\":null,\"ystr_haplogroup\":null,\"ystr_haplosubgroup\":null,\"ystr_mcc_date\":null,\"resample_indicator\":false,\"notes\":null,\"uuid\":null,\"user_id\":null,\"custom_field_1\":null,\"custom_field_2\":null,\"custom_field_3\":null},\"review\":{\"id\":441,\"se_id\":1266,\"org_id\":2,\"project_id\":2,\"lab_id\":1,\"external_case_id\":\"2004H0114\",\"priority\":null,\"sample_number\":null,\"mito_sequence_number\":\"59\",\"mito_sequence_subgroup\":\"test\",\"mito_sequence_similar\":\"test\",\"mito_match_count\":\"20\",\"mito_total_count\":\"20\",\"mito_receive_date\":null,\"mito_haplogroup_id\":null,\"created_by\":\"System\",\"updated_by\":null,\"created_at\":\"2018-04-29 18:50:35\",\"updated_at\":null,\"deleted_at\":null,\"analysis_type_id\":null,\"mito_results_confidence\":null,\"mito_method\":\"NGS\",\"external_sample_number\":\"1234\",\"dispostion_of_evidence\":\"yes\",\"mito_confirmed_regions\":\"test\",\"mito_base_pairs\":\"test\",\"locus\":\"test_lucas\",\"mito_num_loci\":\"test\",\"mito_mcc_date\":null,\"sb_id\":77,\"additional_testing\":false,\"priority_date\":null,\"btb_request_date\":null,\"btb_results_date\":null,\"disposition\":null,\"sample_condition\":null,\"weight_sample_remaining\":null,\"mito_request_date\":null,\"mito_polymorphisms\":null,\"mito_fasta_sequence\":\"test\",\"mito_haplosubgroup\":null,\"austr_method\":\"AmpFLSTR Minifiler\",\"austr_request_date\":null,\"austr_receive_date\":null,\"austr_results_confidence\":\"Inconclusive\",\"austr_sequence_number\":\"123\",\"austr_sequence_subgroup\":null,\"austr_sequence_similar\":null,\"austr_match_count\":\"0\",\"austr_total_count\":\"10\",\"austr_num_loci\":\"test\",\"austr_loci\":\"test\",\"austr_mcc_date\":null,\"ystr_method\":\"Y filer\",\"ystr_request_date\":null,\"ystr_receive_date\":null,\"ystr_results_confidence\":\"Reportable\",\"ystr_sequence_number\":\"123\",\"ystr_sequence_subgroup\":\"sample\",\"ystr_sequence_similar\":\"test\",\"ystr_match_count\":\"20\",\"ystr_total_count\":\"10\",\"ystr_num_loci\":\"test\",\"ystr_loci\":\"test\",\"ystr_haplogroup\":null,\"ystr_haplosubgroup\":null,\"ystr_mcc_date\":null,\"resample_indicator\":null,\"notes\":null,\"uuid\":null,\"user_id\":null,\"custom_field_1\":null,\"custom_field_2\":null,\"custom_field_3\":null},\"dna_id\":\"146A\"\r\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
 										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1266,\"type\":\"zones\",\"original\":[194,195,196,197,198,199,200,201,202,203,204,205],\"review\":[595,596]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-measurement",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1363,\"type\":\"measurements\",\"original\":{\"101\":\"222\",\"105\":\"65.38\",\"115\":\"35.55\",\"116\":\"13.78\",\"117\":\"56.3\"},\"review\":{\"101\":\"2.5\",\"102\":\"3.6\",\"103\":\"4.5\",\"104\":\"5.5\",\"105\":\"6.3\",\"106\":\"7.4\",\"107\":\"8.3\",\"108\":\"7.4\",\"109\":\"6.4\",\"110\":\"8.4\",\"111\":\"9.4\",\"112\":\"11.2\",\"113\":\"3.5\",\"114\":\"13.5\",\"115\":\"10.4\",\"116\":\"11.2\",\"117\":\"13.5\"}}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-articulations",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1311,\"type\":\"articulations\",\"original\":[8566],\"review\":[1005,1024]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-pair matching",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1311,\"type\":\"pairs\",\"original\":[8566],\"review\":[1005,1024]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-Refits",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1311,\"type\":\"refits\",\"original\":[],\"review\":[1110,1104]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-morphology",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1311,\"type\":\"refits\",\"original\":[],\"review\":[1110,1104]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-anomoly",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1313,\"type\":\"anomalys\",\"original\":[51],\"review\":[51]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-trauma",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1660,\"type\":\"traumas\",\"original\":{\"1-*\":{\"trauma_id\":\"1\",\"zone_id\":\"\",\"additional_information\":\"Healed AM fx, distal 1/3 shaft, misaligned\"}},\"review\":{\"1-375\":{\"trauma_id\":\"1\",\"zone_id\":\"375\",\"additional_information\":\"\"}}}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "save-pathology",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1271,\"type\":\"pathologys\",\"original\":{},\"review\":{}}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										""
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"auth": {
-						"type": "bearer",
-						"bearer": [
-							{
-								"key": "token",
-								"value": "{{org_token}}",
-								"type": "string"
-							}
-						]
-					},
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"response must be valid and have a body\", function () {",
-									"     pm.response.to.be.withBody;",
-									"     pm.response.to.be.json;",
-									"});",
-									"pm.test(\"Content-Type is present\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"});",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
-									"});",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Test to see the fields\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"se_id\",\"type\",\"original\",\"review\",\"reviewer_id\",\"updated_at\",\"created_at\",\"id\");",
-									"});",
-									"pm.test(\"Biological Profile save test\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.value);",
-									"});",
-									"",
-									"pm.test(\"Saving the returned values\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    var se_id = jsonData.data.se_id",
-									"    pm.collectionVariables.set(\"general:se_id\", se_id);",
-									"    var type = jsonData.data.type",
-									"    pm.collectionVariables.set(\"general:type\", type);",
-									"    var original = jsonData.data.original",
-									"    pm.collectionVariables.set(\"general:original\", original);",
-									"    var review = jsonData.data.review",
-									"    pm.collectionVariables.set(\"general:review\", review);",
-									"",
-									"});",
-									"",
-									"    pm.test(\" Check the correct returned values\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    var se_id = pm.collectionVariables.get(\"general:se_id\")",
-									"    var type = pm.collectionVariables.get(\"general:type\")",
-									"    var original = pm.collectionVariables.get(\"general:original\")",
-									"    var review = pm.collectionVariables.get(\"general:review\")",
-									"    ",
-									"     pm.expect(jsonData.data.se_id).to.eql(se_id);",
-									"    pm.expect(jsonData.data.type).to.eql(type);",
-									"    pm.expect(jsonData.data.original).to.eql(original); ",
-									"    pm.expect(jsonData.data.review).to.eql(review); ",
-									"",
-									"});"
-								]
-							}
-						}
-					]
-				},
-				{
-					"name": "Accept",
-					"item": [
-						{
-							"name": "accept-General",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
 									},
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"se_id\":1266,\r\n    \"type\": \"general\",\r\n    \"review\": {  \"sb_id\":215,\"side\": \"Left\", \"completeness\": \"Complete\", \"mass\":null,\"count\":null }\r\n}"
+									"response": []
 								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
+								{
+									"name": "save-Taphonomy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
 									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1266,\"type\":\"taphonomys\",\"original\":[],\"review\":[1,2]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-zones",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1266,\"type\":\"zones\",\"original\":[194,195,196,197,198,199,200,201,202,203,204,205],\"review\":[595,596]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-measurement",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1363,\"type\":\"measurements\",\"original\":{\"101\":\"222\",\"105\":\"65.38\",\"115\":\"35.55\",\"116\":\"13.78\",\"117\":\"56.3\"},\"review\":{\"101\":\"2.5\",\"102\":\"3.6\",\"103\":\"4.5\",\"104\":\"5.5\",\"105\":\"6.3\",\"106\":\"7.4\",\"107\":\"8.3\",\"108\":\"7.4\",\"109\":\"6.4\",\"110\":\"8.4\",\"111\":\"9.4\",\"112\":\"11.2\",\"113\":\"3.5\",\"114\":\"13.5\",\"115\":\"10.4\",\"116\":\"11.2\",\"117\":\"13.5\"}}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-articulations",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1311,\"type\":\"articulations\",\"original\":[8566],\"review\":[1005,1024]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-pair matching",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1311,\"type\":\"pairs\",\"original\":[8566],\"review\":[1005,1024]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-Refits",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1311,\"type\":\"refits\",\"original\":[],\"review\":[1110,1104]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-morphology",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1311,\"type\":\"refits\",\"original\":[],\"review\":[1110,1104]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-anomoly",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1313,\"type\":\"anomalys\",\"original\":[51],\"review\":[51]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-trauma",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1660,\"type\":\"traumas\",\"original\":{\"1-*\":{\"trauma_id\":\"1\",\"zone_id\":\"\",\"additional_information\":\"Healed AM fx, distal 1/3 shaft, misaligned\"}},\"review\":{\"1-375\":{\"trauma_id\":\"1\",\"zone_id\":\"375\",\"additional_information\":\"\"}}}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-pathology",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1271,\"type\":\"pathologys\",\"original\":{},\"review\":{}}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												""
+											]
+										}
+									},
+									"response": []
 								}
+							],
+							"auth": {
+								"type": "bearer",
+								"bearer": [
+									{
+										"key": "token",
+										"value": "{{org_token}}",
+										"type": "string"
+									}
+								]
 							},
-							"response": []
-						},
-						{
-							"name": "accept-Biological Profile",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
+										"type": "text/javascript",
 										"exec": [
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
 								},
 								{
 									"listen": "test",
 									"script": {
+										"type": "text/javascript",
 										"exec": [
-											""
-										],
-										"type": "text/javascript"
+											"pm.test(\"response must be valid and have a body\", function () {",
+											"     pm.response.to.be.withBody;",
+											"     pm.response.to.be.json;",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"pm.test(\"Response time is less than 200ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+											"});",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Test to see the fields\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"se_id\",\"type\",\"original\",\"review\",\"reviewer_id\",\"updated_at\",\"created_at\",\"id\");",
+											"});",
+											"pm.test(\"Biological Profile save test\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.value);",
+											"});",
+											"",
+											"pm.test(\"Saving the returned values\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    var se_id = jsonData.data.se_id",
+											"    pm.environment.set(\"general:se_id\", se_id);",
+											"    var type = jsonData.data.type",
+											"    pm.environment.set(\"general:type\", type);",
+											"    var original = jsonData.data.original",
+											"    pm.environment.set(\"general:original\", original);",
+											"    var review = jsonData.data.review",
+											"    pm.environment.set(\"general:review\", review);",
+											"",
+											"});",
+											"",
+											"    pm.test(\" Check the correct returned values\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    var se_id = pm.environment.get(\"general:se_id\")",
+											"    var type = pm.environment.get(\"general:type\")",
+											"    var original = pm.environment.get(\"general:original\")",
+											"    var review = pm.environment.get(\"general:review\")",
+											"    ",
+											"     pm.expect(jsonData.data.se_id).to.eql(se_id);",
+											"    pm.expect(jsonData.data.type).to.eql(type);",
+											"    pm.expect(jsonData.data.original).to.eql(original); ",
+											"    pm.expect(jsonData.data.review).to.eql(review); ",
+											"",
+											"});"
+										]
 									}
 								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"se_id\":1266,\r\n    \"type\":\"methods\",\r\n    \"review\":{\"methods\":{\"76\":{\"features\":{\"169\":{\"score\":\"3\"},\"170\":{\"score\":\"4\"},\"171\":{\"score\":\"4\"},\"172\":{\"score\":\"4\"}}}}}\r\n}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
-								}
-							},
-							"response": []
+							]
 						},
 						{
-							"name": "Accept -Dna- Review",
-							"event": [
+							"name": "Accept",
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
+									"name": "accept-General",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
 										],
-										"type": "text/javascript"
-									}
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"se_id\":1266,\r\n    \"type\": \"general\",\r\n    \"review\": {  \"sb_id\":215,\"side\": \"Left\", \"completeness\": \"Complete\", \"mass\":null,\"count\":null }\r\n    \r\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
 								},
+								{
+									"name": "accept-Biological Profile",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"se_id\":1266,\r\n    \"type\":\"methods\",\r\n    \"review\":{\"methods\":{\"76\":{\"features\":{\"169\":{\"score\":\"3\"},\"170\":{\"score\":\"4\"},\"171\":{\"score\":\"4\"},\"172\":{\"score\":\"4\"}}}}}\r\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Accept -Dna- Review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1660,\"type\":\"dna\",\"review\":{\"id\":662,\"se_id\":1660,\"org_id\":2,\"project_id\":2,\"lab_id\":1,\"external_case_id\":\"2015H0860\",\"priority\":null,\"sample_number\":null,\"mito_sequence_number\":null,\"mito_sequence_subgroup\":null,\"mito_sequence_similar\":null,\"mito_match_count\":null,\"mito_total_count\":null,\"mito_receive_date\":null,\"mito_haplogroup_id\":null,\"created_by\":\"System\",\"updated_by\":null,\"created_at\":\"2018-04-29 18:50:35\",\"updated_at\":null,\"deleted_at\":null,\"analysis_type_id\":null,\"mito_results_confidence\":null,\"mito_method\":\"Sanger\",\"external_sample_number\":null,\"dispostion_of_evidence\":null,\"mito_confirmed_regions\":null,\"mito_base_pairs\":null,\"locus\":null,\"mito_num_loci\":null,\"mito_mcc_date\":null,\"sb_id\":144,\"additional_testing\":false,\"priority_date\":null,\"btb_request_date\":null,\"btb_results_date\":null,\"disposition\":null,\"sample_condition\":null,\"weight_sample_remaining\":null,\"mito_request_date\":null,\"mito_polymorphisms\":null,\"mito_fasta_sequence\":null,\"mito_haplosubgroup\":null,\"austr_method\":\"AmpFLSTR Identifiler\",\"austr_request_date\":null,\"austr_receive_date\":null,\"austr_results_confidence\":\"Unable to Assign\",\"austr_sequence_number\":null,\"austr_sequence_subgroup\":null,\"austr_sequence_similar\":null,\"austr_match_count\":null,\"austr_total_count\":null,\"austr_num_loci\":null,\"austr_loci\":null,\"austr_mcc_date\":null,\"ystr_method\":\"Y filer\",\"ystr_request_date\":null,\"ystr_receive_date\":null,\"ystr_results_confidence\":null,\"ystr_sequence_number\":null,\"ystr_sequence_subgroup\":null,\"ystr_sequence_similar\":null,\"ystr_match_count\":null,\"ystr_total_count\":null,\"ystr_num_loci\":null,\"ystr_loci\":null,\"ystr_haplogroup\":null,\"ystr_haplosubgroup\":null,\"ystr_mcc_date\":null,\"resample_indicator\":null,\"notes\":null,\"uuid\":null,\"user_id\":null,\"custom_field_1\":null,\"custom_field_2\":null,\"custom_field_3\":null},\"dna_id\":\"241A\"}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/1660/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"1660",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept-taphonomy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1266,\"type\":\"taphonomys\",\"review\":[1,2]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept-zones",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1266,\"type\":\"zones\",\"review\":[595,596]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept-measurement",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":28324,\"type\":\"measurements\",\"review\":{\"101\":\"10\",\"102\":\"11\",\"103\":\"12\",\"104\":\"13\",\"105\":\"16\",\"106\":\"18\",\"107\":\"19\",\"108\":\"20\",\"109\":\"21\",\"110\":\"22\",\"111\":\"23\",\"112\":\"24\",\"113\":\"26\",\"114\":\"27\",\"115\":\"28\",\"116\":\"29\",\"117\":\"30\"}}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/1029/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"1029",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept-articulations",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1311,\"type\":\"articulations\",\"review\":[1005,1024]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept-pair matching",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1311,\"type\":\"pairs\",\"review\":[1068,1110]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept-Refits",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1311,\"type\":\"refits\",\"review\":[1110,1104]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept-morphology",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1311,\"type\":\"refits\",\"review\":[1110,1104]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "accept-anomoly",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"se_id\":1313,\"type\":\"anomalys\",\"review\":[51]}"
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}",
+												"accept"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"auth": {
+								"type": "bearer",
+								"bearer": [
+									{
+										"key": "token",
+										"value": "{{org_token}}",
+										"type": "string"
+									}
+								]
+							},
+							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
+										"type": "text/javascript",
 										"exec": [
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {
-									"content-type": true
-								}
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
 								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1660,\"type\":\"dna\",\"review\":{\"id\":662,\"se_id\":1660,\"org_id\":2,\"project_id\":2,\"lab_id\":1,\"external_case_id\":\"2015H0860\",\"priority\":null,\"sample_number\":null,\"mito_sequence_number\":null,\"mito_sequence_subgroup\":null,\"mito_sequence_similar\":null,\"mito_match_count\":null,\"mito_total_count\":null,\"mito_receive_date\":null,\"mito_haplogroup_id\":null,\"created_by\":\"System\",\"updated_by\":null,\"created_at\":\"2018-04-29 18:50:35\",\"updated_at\":null,\"deleted_at\":null,\"analysis_type_id\":null,\"mito_results_confidence\":null,\"mito_method\":\"Sanger\",\"external_sample_number\":null,\"dispostion_of_evidence\":null,\"mito_confirmed_regions\":null,\"mito_base_pairs\":null,\"locus\":null,\"mito_num_loci\":null,\"mito_mcc_date\":null,\"sb_id\":144,\"additional_testing\":false,\"priority_date\":null,\"btb_request_date\":null,\"btb_results_date\":null,\"disposition\":null,\"sample_condition\":null,\"weight_sample_remaining\":null,\"mito_request_date\":null,\"mito_polymorphisms\":null,\"mito_fasta_sequence\":null,\"mito_haplosubgroup\":null,\"austr_method\":\"AmpFLSTR Identifiler\",\"austr_request_date\":null,\"austr_receive_date\":null,\"austr_results_confidence\":\"Unable to Assign\",\"austr_sequence_number\":null,\"austr_sequence_subgroup\":null,\"austr_sequence_similar\":null,\"austr_match_count\":null,\"austr_total_count\":null,\"austr_num_loci\":null,\"austr_loci\":null,\"austr_mcc_date\":null,\"ystr_method\":\"Y filer\",\"ystr_request_date\":null,\"ystr_receive_date\":null,\"ystr_results_confidence\":null,\"ystr_sequence_number\":null,\"ystr_sequence_subgroup\":null,\"ystr_sequence_similar\":null,\"ystr_match_count\":null,\"ystr_total_count\":null,\"ystr_num_loci\":null,\"ystr_loci\":null,\"ystr_haplogroup\":null,\"ystr_haplosubgroup\":null,\"ystr_mcc_date\":null,\"resample_indicator\":null,\"notes\":null,\"uuid\":null,\"user_id\":null,\"custom_field_1\":null,\"custom_field_2\":null,\"custom_field_3\":null},\"dna_id\":\"241A\"}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/1660/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"1660",
-										"accept"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "accept-taphonomy",
-							"event": [
 								{
 									"listen": "test",
 									"script": {
+										"type": "text/javascript",
 										"exec": [
+											"const jsonData = pm.response.json()",
+											"var statusCode = pm.response.code",
+											"if(statusCode == 200){",
+											"pm.test(\"Body matches string\", function () {",
+											"    pm.expect(pm.response.text()).to.include(\"Resource updated successfully\");",
+											"});",
+											"pm.test(\"response must be valid and have a body\", function () {",
+											"     pm.response.to.be.withBody;",
+											"     pm.response.to.be.json;",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"}",
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
 								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1266,\"type\":\"taphonomys\",\"review\":[1,2]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
-								}
-							},
-							"response": []
+							]
 						},
 						{
-							"name": "accept-zones",
-							"event": [
+							"name": "Get Review details",
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
+									"name": "load general-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
 										],
-										"type": "text/javascript"
-									}
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}?type=general",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "general"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load biologicalmethods-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}?type=methods",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "methods"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load DNA-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenid}}?type=dna-40A",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenid}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "dna-40A"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load taphonomy-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}?type=taphonomys",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "taphonomys"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load zones-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}?type=zones",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "zones"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load  measurement-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenid}}?type=measurements",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenid}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "measurements"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load articulations-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenid}}?type=articulations",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenid}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "articulations"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load refits-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenid}}?type=refits",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenid}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "refits"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load pairs-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenid}}?type=pairs",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenid}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "pairs"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load anomaly-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenid}}?type=anomalys",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenid}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "anomalys"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load traumas-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/review/{{specimenId}}?type=traumas",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"{{specimenId}}"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "traumas"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load pathology-review",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{org_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{base_url}}/api/review/1266?type=pathologys",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"review",
+												"1266"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "pathologys"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
+							"auth": {
+								"type": "bearer",
+								"bearer": [
 									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+										"key": "token",
+										"value": "{{org_token}}",
+										"type": "string"
 									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1266,\"type\":\"zones\",\"review\":[595,596]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
-								}
+								]
 							},
-							"response": []
-						},
-						{
-							"name": "accept-measurement",
 							"event": [
 								{
 									"listen": "prerequest",
 									"script": {
+										"type": "text/javascript",
 										"exec": [
 											""
-										],
-										"type": "text/javascript"
+										]
 									}
 								},
 								{
 									"listen": "test",
 									"script": {
+										"type": "text/javascript",
 										"exec": [
-											""
-										],
-										"type": "text/javascript"
+											"",
+											"const jsonData = pm.response.json()",
+											"var statusCode = pm.response.code",
+											"if(statusCode == 200){",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"if(statusCode == 200){",
+											"pm.test(\"response should be okay to process\", function () {",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.json;",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"    pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 200ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+											"});}",
+											"",
+											"}"
+										]
 									}
 								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":28324,\"type\":\"measurements\",\"review\":{\"101\":\"10\",\"102\":\"11\",\"103\":\"12\",\"104\":\"13\",\"105\":\"16\",\"106\":\"18\",\"107\":\"19\",\"108\":\"20\",\"109\":\"21\",\"110\":\"22\",\"111\":\"23\",\"112\":\"24\",\"113\":\"26\",\"114\":\"27\",\"115\":\"28\",\"116\":\"29\",\"117\":\"30\"}}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/1029/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"1029",
-										"accept"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "accept-articulations",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1311,\"type\":\"articulations\",\"review\":[1005,1024]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "accept-pair matching",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1311,\"type\":\"pairs\",\"review\":[1068,1110]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "accept-Refits",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1311,\"type\":\"refits\",\"review\":[1110,1104]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "accept-morphology",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1311,\"type\":\"refits\",\"review\":[1110,1104]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "accept-anomoly",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"se_id\":1313,\"type\":\"anomalys\",\"review\":[51]}"
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}/accept",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}",
-										"accept"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"auth": {
-						"type": "bearer",
-						"bearer": [
-							{
-								"key": "token",
-								"value": "{{token}}",
-								"type": "string"
-							}
-						]
-					},
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"General save test\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.value);",
-									"});",
-									"",
-									"pm.test(\"Content-Type is present\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"});",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
-									"});",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"Resource updated successfully\");",
-									"});",
-									"",
-									"pm.test(\"response must be valid and have a body\", function () {",
-									"     pm.response.to.be.withBody;",
-									"     pm.response.to.be.json;",
-									"});",
-									""
-								]
-							}
-						}
-					]
-				},
-				{
-					"name": "Get Review details",
-					"item": [
-						{
-							"name": "load general-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}?type=general",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "general"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load biologicalmethods-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}?type=methods",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "methods"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load DNA-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenid}}?type=dna-40A",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenid}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "dna-40A"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load taphonomy-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}?type=taphonomys",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "taphonomys"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load zones-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}?type=zones",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "zones"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load  measurement-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenid}}?type=measurements",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenid}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "measurements"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load articulations-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenid}}?type=articulations",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenid}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "articulations"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load refits-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenid}}?type=refits",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenid}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "refits"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load pairs-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenid}}?type=pairs",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenid}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "pairs"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load anomaly-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenid}}?type=anomalys",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenid}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "anomalys"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load traumas-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/review/{{specimenId}}?type=traumas",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"{{specimenId}}"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "traumas"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "load pathology-review",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{org_token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "{{base_url}}/api/review/1266?type=pathologys",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"review",
-										"1266"
-									],
-									"query": [
-										{
-											"key": "type",
-											"value": "pathologys"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"auth": {
-						"type": "bearer",
-						"bearer": [
-							{
-								"key": "token",
-								"value": "{{token}}",
-								"type": "string"
-							}
-						]
-					},
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									""
-								]
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"response should be okay to process\", function () {",
-									"    pm.response.to.not.be.error;",
-									"    pm.response.to.be.json;",
-									"});",
-									"pm.test(\"Content-Type is present\", function () {",
-									"    pm.response.to.have.header(\"Content-Type\");",
-									"});",
-									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(2000);",
-									"});",
-									"",
-									""
-								]
-							}
+							]
 						}
 					]
 				}
@@ -11185,7 +11116,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status Code Test\", () => {",
-							"pm.expect(pm.response.code).to.be.oneOf([200,201,403,404,400,422, 401, 500]);",
+							"pm.expect(pm.response.code).to.be.oneOf([200,201,403,404,400,422, 401,429,500]);",
 							"});",
 							"",
 							"pm.test(\"Check the active environment\", () => {",
@@ -11200,6 +11131,8 @@
 							"}",
 							"",
 							"const jsonData = pm.response.json()",
+							"const Specimenschema2 = JSON.parse(pm.environment.get(\"Specimenschema2\"));",
+							"var statusCode = pm.response.code",
 							"",
 							"pm.test(\"Data, Status & Meta Test\", () => {",
 							"    if(jsonData.meta == true){",
@@ -11212,13 +11145,6 @@
 							"});",
 							"",
 							"",
-							"const Specimenschema2 = JSON.parse(pm.environment.get(\"Specimenschema2\"));",
-							"var statusCode = pm.response.code",
-							"if(statusCode == 200){",
-							"pm.test('Schema is valid', function () {",
-							"    pm.response.to.have.jsonSchema(Specimenschema2)",
-							"});",
-							"}",
 							"",
 							"",
 							"",
@@ -11550,241 +11476,241 @@
 	],
 	"variable": [
 		{
-			"id": "802a4bf1-b9c4-4f6c-b70b-c06235132e34",
+			"id": "c8814d32-c904-4ff4-a5c0-c5926fabaac1",
 			"key": "baseUrl",
 			"value": "{{base_url}}/api"
 		},
 		{
-			"id": "41f03261-8ffa-41d8-ab3c-b30dc2c6eb17",
+			"id": "3238bea5-21f8-4167-98bc-a2afa8b75324",
 			"key": "specimenschema",
 			"value": ""
 		},
 		{
-			"id": "2321e16c-f230-4ce1-b1d4-43b8ccf7eafa",
+			"id": "4bedc23e-ffa4-4b04-86bb-ffb355c415ec",
 			"key": "my_var2",
 			"value": ""
 		},
 		{
-			"id": "5bc50a77-6999-417d-a1c8-657a1918e3fc",
+			"id": "34ce061a-2b5f-4bb2-a887-c4327f7f70dc",
 			"key": "my_var1",
 			"value": ""
 		},
 		{
-			"id": "58d22046-bec9-42c5-bcf8-534dbeecbefd",
+			"id": "721224e0-03c3-43d1-b265-3af6fd66c136",
 			"key": "searchstring",
 			"value": ""
 		},
 		{
-			"id": "a941e4c0-4087-4c90-aa4c-f90776a5bc00",
+			"id": "073ed0a6-77d2-4b7b-b049-5c4a17868b89",
 			"key": "per_page",
 			"value": ""
 		},
 		{
-			"id": "b5b2aecd-37f8-41b6-a72a-dc596e0499de",
+			"id": "434984e0-38d1-4870-9631-6b292c5ee63f",
 			"key": "accession_number",
 			"value": ""
 		},
 		{
-			"id": "f4f956b3-f0e5-4bc2-a491-3f82564754c8",
+			"id": "ef67d53c-f3d1-4b8e-81a3-efc321efea96",
 			"key": "specimenschema2",
 			"value": ""
 		},
 		{
-			"id": "e250624e-7ed3-40a1-8d72-f16f4b1cdc40",
+			"id": "0b04be39-8a67-4db7-9c55-63a681658fb8",
 			"value": ""
 		},
 		{
-			"id": "b416497a-a894-4912-9f0e-84536797eb2b",
+			"id": "b99e530e-c2dc-4c43-88b2-8c737a6df6ea",
 			"key": "provenance1",
 			"value": "G-01"
 		},
 		{
-			"id": "cfff84e2-994d-4de1-b46b-79e20e110a1c",
+			"id": "eecc2c30-c06d-4a32-96f9-82401555e9a7",
 			"key": "provenance2",
 			"value": null
 		},
 		{
-			"id": "21e69215-3325-4ca0-91fe-456f69137b9f",
+			"id": "2bf6db2d-7723-42e5-a6ca-7a5db9ab1362",
 			"key": "measured",
 			"value": true
 		},
 		{
-			"id": "4c78c856-7ac0-4540-b725-b02c3c23a3f8",
+			"id": "79e80752-0cc4-4e67-9c5d-ce1dad908267",
 			"key": "dna_sampled",
 			"value": true
 		},
 		{
-			"id": "4e1763b9-528f-4148-9638-8f6883dde439",
+			"id": "0b67fd1a-bcc2-4604-b4ce-5cb3457d7568",
 			"key": "ct_scanned",
 			"value": true
 		},
 		{
-			"id": "bc81197b-5471-4906-a2a4-e637153a2ce7",
+			"id": "b33c4533-e352-49f4-a39b-783ab1808e18",
 			"key": "ct_scanned_date",
 			"value": "2020-10-20 00:00:00"
 		},
 		{
-			"id": "00b3cc6a-f1c6-454c-aad4-7add54344efc",
+			"id": "5e5a1f3a-4cdc-4974-8dae-a22b38b760c5",
 			"key": "xray_scanned",
 			"value": true
 		},
 		{
-			"id": "ec796e3e-e947-4e28-9a09-5457720c31a9",
+			"id": "13fce77f-361b-47cc-8b89-1408ff2b61cf",
 			"key": "xray_scanned_date",
 			"value": "2020-10-22 00:00:00"
 		},
 		{
-			"id": "cc8ffa14-e59f-45be-9413-5c91bc3765e8",
+			"id": "c9a7a7e8-c117-4d8a-b76e-102593a8e891",
 			"key": "individual_number",
 			"value": "I-100"
 		},
 		{
-			"id": "a05d8704-475a-4fc5-9124-98cb4d61c805",
+			"id": "01e76abe-4563-4cb9-bb92-04e5e8b629af",
 			"key": "method_feature_id",
 			"value": ""
 		},
 		{
-			"id": "9a15e085-078a-451a-9e63-eb8264d1bb18",
+			"id": "2d8eab14-74f3-4493-863c-60c0eef96362",
 			"key": "method_id",
 			"value": ""
 		},
 		{
-			"id": "06c8eae6-4b54-46e0-92dd-78cd91e4031c",
+			"id": "ed1bd71e-baac-409a-9b91-b89156175cbf",
 			"key": "score",
 			"value": ""
 		},
 		{
-			"id": "4750d405-4911-48a3-9255-cdfe88f6e79d",
+			"id": "582204b8-d965-4a94-a6e5-e102358013e4",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "847e6e0f-c8fa-41a4-a36e-d6ae5941fa78",
+			"id": "2bb2e677-9d30-4866-a073-64dd006c91f6",
 			"key": "name",
 			"value": ""
 		},
 		{
-			"id": "e34e6027-4ebd-44a4-8340-85a7344dc57a",
+			"id": "725c3c16-a470-4bf3-a36f-d5297cf3a65b",
 			"key": "display_name",
 			"value": ""
 		},
 		{
-			"id": "f3fc4290-e690-43ae-883a-2d366041d497",
+			"id": "0e526caa-c728-449e-83b3-b0cfed260486",
 			"key": "display_order",
 			"value": ""
 		},
 		{
-			"id": "80edf5fc-b677-49f8-b7dc-a167623f75d5",
+			"id": "96336208-0ee0-4432-b21e-d64ce80341f8",
 			"key": "min_value",
 			"value": ""
 		},
 		{
-			"id": "833df8dd-373f-47bd-aa7d-1d995f7b9542",
+			"id": "8924fc28-7310-4bf9-8588-d7f8b5b49819",
 			"key": "max_value",
 			"value": ""
 		},
 		{
-			"id": "a126a289-8177-44c0-a655-c776c4ab0e87",
+			"id": "1465f78a-c448-4b86-9fcb-e357d4912fea",
 			"key": "min_threshold",
 			"value": ""
 		},
 		{
-			"id": "75031906-95de-49a6-8462-e8a149904a2d",
+			"id": "7c029f90-d2ed-44a3-b7a0-21d8aa42ec2a",
 			"key": "max_threshold",
 			"value": ""
 		},
 		{
-			"id": "05aed704-61da-47fa-848f-7a67accc6740",
+			"id": "8dd3cfdc-7257-484c-bd60-43add9c45136",
 			"key": "instrument",
 			"value": ""
 		},
 		{
-			"id": "f95f095a-f828-4be2-8000-0f23bc1e6b7f",
+			"id": "d74193e1-7852-4ab2-8f31-d325e18b8b8e",
 			"key": "description",
 			"value": ""
 		},
 		{
-			"id": "f8335263-9715-44c7-9114-92c0689398b0",
+			"id": "58e16a97-bbf7-4252-bd6c-ea98fe1d981e",
 			"key": "presence",
 			"value": ""
 		},
 		{
-			"id": "13e3f930-5aab-4f10-8a50-ac190f4b2e6b",
+			"id": "c443196f-d897-4e2e-98d3-077cb89d959d",
 			"key": "branch",
 			"value": ""
 		},
 		{
-			"id": "f6a032b9-a7c6-4197-be4b-9ebec51d7da0",
+			"id": "55c2cb4c-3156-4419-8a42-56f3c325a668",
 			"key": "category",
 			"value": ""
 		},
 		{
-			"id": "71b04dd1-e5b8-41a1-b705-aa86a754ae47",
+			"id": "b260e566-889e-49f9-9762-fa25a00fe633",
 			"key": "morphology_id",
-			"value": ""
+			"value": 1081
 		},
 		{
-			"id": "b31cba93-8e9e-4cbb-a6ee-30efbb88f063",
+			"id": "3f4a05b5-0823-4993-9ea7-0d4b2805a200",
 			"key": "morphology_name",
-			"value": ""
+			"value": "CIL 2003-116:G-27:X-184F:604"
 		},
 		{
-			"id": "3763f25c-9486-48c0-af66-98abc37c8113",
+			"id": "5d50ae34-a034-43ec-9bc4-cc799c62d908",
 			"key": "morphology_key",
-			"value": ""
+			"value": "CIL 2003-116:G-27:X-184F:604"
 		},
 		{
-			"id": "ba0555b6-b5f4-4f49-8b86-7c85f901d69b",
+			"id": "1d9871ee-1dae-45c5-9e71-f261d4885ee1",
 			"key": "refits_id",
 			"value": ""
 		},
 		{
-			"id": "fc4fd91b-c839-40cc-8c42-29a6a5844f54",
+			"id": "d3e81622-a884-4ff9-8135-5eeaafcb32c8",
 			"key": "refits_name",
 			"value": ""
 		},
 		{
-			"id": "99d69fa3-05ec-4a6c-9e55-83571907d915",
+			"id": "2142d35c-28ca-4d1f-9513-48b1cc815c6b",
 			"key": "refits_key",
 			"value": ""
 		},
 		{
-			"id": "da2ee8aa-dbc7-4a9d-83dc-e4755bc8ad79",
+			"id": "00a7d77b-4c84-4657-b321-d88b9cd31c69",
 			"key": "pairmatch_id",
 			"value": ""
 		},
 		{
-			"id": "69bed64d-2e48-41ca-9d23-9b41bdb10a3e",
+			"id": "6a70966b-cb2f-4cc9-b07d-c291f3ac3af1",
 			"key": "art_id",
 			"value": ""
 		},
 		{
-			"id": "e754e7b0-7c83-4e36-82e2-7b3e22cd58cf",
+			"id": "d4be54eb-4d23-4a43-b9d7-24ae999795d1",
 			"key": "art_name",
 			"value": ""
 		},
 		{
-			"id": "48383625-1e7d-4b0c-a4cf-4c6962eb90da",
+			"id": "8555aac9-8282-48a4-b70a-aa7adcc6c3b9",
 			"key": "art_key",
 			"value": ""
 		},
 		{
-			"id": "5b19f232-6fe8-4c41-bd04-9e3388733b85",
+			"id": "8046e1d2-ad1c-4cc8-8505-f9a2af68114b",
 			"key": "general:original",
 			"value": null
 		},
 		{
-			"id": "6c65b985-9389-452f-84a1-cd5c5b3c8818",
+			"id": "dac2f6f4-8f36-4246-8fe5-e099bc340cf9",
 			"key": "general:review",
 			"value": null
 		},
 		{
-			"id": "5b30e8c7-fcbe-4763-8e2d-73def6cf1cf8",
+			"id": "0c450f09-12a4-487b-960b-fbf1c33ccd87",
 			"key": "general:se_id",
 			"value": null
 		},
 		{
-			"id": "0bf2b859-2871-40ec-87ee-58efa0352632",
+			"id": "e1993cfb-1599-4d7e-875b-8f8f3fe1edbb",
 			"key": "general:type",
 			"value": null
 		}
