@@ -6293,7 +6293,8 @@
 									"script": {
 										"exec": [
 											"// This test check if the user is able to add a morphology to a specific speciemen. It also checks if the returned response is matches the body.",
-											"",
+											"var statusCode = pm.response.code",
+											"if(statusCode == 200){",
 											"pm.test(\"response must be valid and have a body\", function () {",
 											"pm.response.to.be.ok;",
 											"pm.response.to.be.withBody;",
@@ -6309,6 +6310,8 @@
 											"    pm.expect(jsonData.data[0]).to.have.property(\"key_bone_side\");",
 											"    pm.expect(jsonData.data[0]).to.have.property(\"model_class\");",
 											"});",
+											"",
+											"}",
 											"",
 											"",
 											""
@@ -6498,6 +6501,8 @@
 									"script": {
 										"exec": [
 											"// This test check if the user is able to get a morphology to a specific speciemen.",
+											"var statusCode = pm.response.code",
+											"if(statusCode == 200){",
 											"pm.test(\"response must be valid and have a body\", function () {",
 											"     pm.response.to.be.ok;",
 											"     pm.response.to.be.withBody;",
@@ -6513,6 +6518,8 @@
 											"pm.test(\"Check response variables\", function () {",
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");",
 											"});",
+											"",
+											"}",
 											"",
 											"",
 											"",
@@ -6717,6 +6724,8 @@
 									"script": {
 										"exec": [
 											"// This test check if the user is able to add a refits to a specific speciemen. It also checks if the returned response is matches the body.",
+											"var statusCode = pm.response.code",
+											"if(statusCode == 200){",
 											"pm.test(\"response must be valid and have a body\", function () {",
 											"    pm.response.to.be.ok;",
 											"    pm.response.to.be.withBody;",
@@ -6733,7 +6742,7 @@
 											"pm.expect(jsonData.data[0]).to.have.property(\"model_class\");",
 											"});",
 											"",
-											""
+											"}"
 										],
 										"type": "text/javascript"
 									}
@@ -6920,6 +6929,8 @@
 									"script": {
 										"exec": [
 											"// This test check if the user is able to get a morphology to a specific speciemen.",
+											"var statusCode = pm.response.code",
+											"if(statusCode == 200){",
 											"pm.test(\"Check if object contains all provided properties\", function () {",
 											"    var jsonData = pm.response.json();",
 											"    pm.expect(jsonData.data[0]).to.have.property(\"id\");",
@@ -6928,7 +6939,7 @@
 											"pm.test(\"Check response variables\", function () {",
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");",
 											"});",
-											"",
+											"}",
 											""
 										],
 										"type": "text/javascript"
@@ -7107,6 +7118,8 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"var statusCode = pm.response.code",
+											"if(statusCode == 200){",
 											"pm.test(\"response must be valid and have a body\", function () {",
 											"     pm.response.to.be.ok;",
 											"     pm.response.to.be.withBody;",
@@ -7121,7 +7134,7 @@
 											"    pm.expect(jsonData.data[0]).to.have.property(\"key_bone_side\");",
 											"    pm.expect(jsonData.data[0]).to.have.property(\"model_class\");",
 											"});",
-											"",
+											"}",
 											""
 										],
 										"type": "text/javascript"
@@ -7310,7 +7323,8 @@
 									"script": {
 										"exec": [
 											"//This tests that we can get the data for the specified Pair Matching values detailed in \"edit pair mathching\" test",
-											"",
+											"var statusCode = pm.response.code",
+											"if(statusCode == 200){",
 											"pm.test(\"response must be valid and have a body\", function () {",
 											"     pm.response.to.be.ok;",
 											"     pm.response.to.be.withBody;",
@@ -7329,7 +7343,7 @@
 											"pm.test(\"Check response variables\", function () {",
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");",
 											"});",
-											"",
+											"}",
 											"",
 											""
 										],
@@ -7497,7 +7511,8 @@
 									"script": {
 										"exec": [
 											"//This test checks if the user is able to add articulations to a specimen. It also checks if the returned response is matches the body.\r",
-											"\r",
+											"var statusCode = pm.response.code\r",
+											"if(statusCode == 200){\r",
 											"pm.test(\"response must be valid and have a body\", function () {\r",
 											"     pm.response.to.be.ok;\r",
 											"     pm.response.to.be.withBody;\r",
@@ -7513,7 +7528,7 @@
 											"    pm.expect(jsonData.data[0]).to.have.property(\"key_bone_side\");\r",
 											"    pm.expect(jsonData.data[0]).to.have.property(\"model_class\");\r",
 											"});\r",
-											"\r",
+											"}\r",
 											""
 										],
 										"type": "text/javascript"
@@ -7704,7 +7719,8 @@
 									"script": {
 										"exec": [
 											"// This test will get the articulations associated with a specimen and test if the response is coming back as required.\r",
-											"\r",
+											"var statusCode = pm.response.code\r",
+											"if(statusCode == 200){\r",
 											"pm.test(\"response must be valid and have a body\", function () {\r",
 											"     pm.response.to.be.ok;\r",
 											"     pm.response.to.be.withBody;\r",
@@ -7720,7 +7736,7 @@
 											"pm.test(\"Check response variables\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");\r",
 											"});\r",
-											"\r",
+											"}\r",
 											""
 										],
 										"type": "text/javascript"
@@ -7951,7 +7967,8 @@
 									"script": {
 										"exec": [
 											"let jsonData = pm.response.json()\r",
-											"\r",
+											"var statusCode = pm.response.code\r",
+											"if(statusCode == 200){\r",
 											"pm.test(\"Test on specimen id\", function () {\r",
 											"    var jsonData = pm.response.json();\r",
 											"    var specimen = JSON.parse(pm.environment.get(\"spec_val\"))\r",
@@ -7974,7 +7991,7 @@
 											"pm.test(\"Check response variables\", function () {\r",
 											"    pm.expect(pm.response.text()).to.include(\"id\",\"name\",\"key\",\"key_bone_side\",\"model_class\");\r",
 											"});\r",
-											""
+											"}"
 										],
 										"type": "text/javascript"
 									}
@@ -8168,6 +8185,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"\r",
 											"const jsonData = pm.response.json()\r",
 											"var statusCode = pm.response.code\r",
 											"\r",
@@ -8380,12 +8398,14 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"var statusCode = pm.response.code\r",
+											"if(statusCode == 200){\r",
 											"pm.test(\"json check is passed\", () => {\r",
 											"    let jsonData = pm.response.json()\r",
 											"    pm.expect(jsonData.data[0].id).to.eql(4031);\r",
 											"    \r",
 											"});\r",
-											""
+											"}"
 										],
 										"type": "text/javascript"
 									}
@@ -8615,13 +8635,14 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"\r",
+											"var statusCode = pm.response.code\r",
+											"if(statusCode == 200){\r",
 											"pm.test(\"json check is passed\", () => {\r",
 											"    let jsonData = pm.response.json()\r",
 											"    pm.expect(jsonData.data[0].id).to.eql(4031);\r",
 											"    \r",
 											"});\r",
-											"\r",
+											"}\r",
 											""
 										],
 										"type": "text/javascript"
@@ -11476,241 +11497,241 @@
 	],
 	"variable": [
 		{
-			"id": "2f22221d-aeef-4cd0-ad4c-92a08507e800",
+			"id": "f07c6b4b-9015-40ee-8cf0-d95ce22be164",
 			"key": "baseUrl",
 			"value": "{{base_url}}/api"
 		},
 		{
-			"id": "9215934f-926b-42b1-9a44-65c2675a8dcc",
+			"id": "6768739c-6367-43bf-a595-ff279f3fffb3",
 			"key": "specimenschema",
 			"value": ""
 		},
 		{
-			"id": "5f99e087-2c27-4a51-916e-2f4354bfb70b",
+			"id": "a15fda56-aca0-4767-8f87-84402421b0e8",
 			"key": "my_var2",
 			"value": ""
 		},
 		{
-			"id": "1f7c7fb7-9901-4fee-9680-eb9b2e1d98d5",
+			"id": "962f2aba-39c1-4ae2-9fb0-9a56375c8428",
 			"key": "my_var1",
 			"value": ""
 		},
 		{
-			"id": "ab87a658-14f4-4462-bac6-d955c614ccdb",
+			"id": "45915525-0e17-4dc6-baa0-2884d62578b4",
 			"key": "searchstring",
 			"value": ""
 		},
 		{
-			"id": "87b6e5be-912d-492c-888b-279f09a3f349",
+			"id": "9bc484d8-6107-41cf-a2f3-0219d2a22419",
 			"key": "per_page",
 			"value": ""
 		},
 		{
-			"id": "7346f353-20ab-4fe1-823c-ab349f9c6464",
+			"id": "2c788561-fb56-4716-a371-e0ac3ad94467",
 			"key": "accession_number",
 			"value": ""
 		},
 		{
-			"id": "8eb23caa-9607-488c-a2f1-25abcb2f62c8",
+			"id": "70151c98-a38b-4c0f-8561-c1b8a9b9a8ff",
 			"key": "specimenschema2",
 			"value": ""
 		},
 		{
-			"id": "aeaf8e82-5356-4f6b-988b-36b22c58409e",
+			"id": "f16c7c3d-37e5-4f8b-972b-3d5023766693",
 			"value": ""
 		},
 		{
-			"id": "f0fce15c-7c68-4f74-bb3e-99ae5f798a8d",
+			"id": "f35232d4-ec69-4a1e-a97c-75851e11f7b7",
 			"key": "provenance1",
 			"value": "G-01"
 		},
 		{
-			"id": "1e65bfb2-26c6-41c4-b0aa-1abb4eaaec46",
+			"id": "cd3ce4b8-98a5-4c11-ae35-16cf296bed3f",
 			"key": "provenance2",
 			"value": null
 		},
 		{
-			"id": "ef8f5910-9201-4c5e-89d1-2cca4732f4e3",
+			"id": "ec749460-5e83-4d07-9ca0-388bbb44325c",
 			"key": "measured",
 			"value": true
 		},
 		{
-			"id": "c53ca530-81a0-43a6-86de-4defe2be25cd",
+			"id": "cae5644e-b34f-48f9-86d0-f2cf2be576e4",
 			"key": "dna_sampled",
 			"value": true
 		},
 		{
-			"id": "fac89499-282c-4030-8142-f383612c7629",
+			"id": "6534973e-d4d0-4d03-89a1-f540ed2c5dc0",
 			"key": "ct_scanned",
 			"value": true
 		},
 		{
-			"id": "caa317ab-aec7-4626-adce-a7159784d1e9",
+			"id": "ef8df58c-a640-4212-9586-5b7ac02a2285",
 			"key": "ct_scanned_date",
 			"value": "2020-10-20 00:00:00"
 		},
 		{
-			"id": "240d4b98-728a-4d54-8cbb-85a726e5b76b",
+			"id": "d44069ca-675e-4749-a3d7-b6d460735979",
 			"key": "xray_scanned",
 			"value": true
 		},
 		{
-			"id": "2a8489d6-f519-4938-8a82-c1645695e960",
+			"id": "14fe8020-ffb9-485e-bd81-2d9e15351f54",
 			"key": "xray_scanned_date",
 			"value": "2020-10-22 00:00:00"
 		},
 		{
-			"id": "8ff78512-e1bf-4f72-8111-e9f5b396307b",
+			"id": "4529e371-8b2e-45d8-88c7-1fb4eae3676a",
 			"key": "individual_number",
 			"value": "I-100"
 		},
 		{
-			"id": "a292cdf5-bb95-47cc-a15b-ba4265cc7a9d",
+			"id": "9adc20a4-019e-4443-9812-54e307246a44",
 			"key": "method_feature_id",
 			"value": ""
 		},
 		{
-			"id": "a2b5ecac-6449-43a5-9464-c2fa500e2102",
+			"id": "4580107a-00e0-4eb8-b674-32c593a2abc7",
 			"key": "method_id",
 			"value": ""
 		},
 		{
-			"id": "0d4877b8-15d1-43cc-a92f-74b44fc5c987",
+			"id": "ca4c5162-5da4-42c3-8b71-9bc0046fddf2",
 			"key": "score",
 			"value": ""
 		},
 		{
-			"id": "3291bbed-9122-4b46-9146-cb7addd5eb9a",
+			"id": "ed67e30d-26ea-4d66-b656-2c20bc3aca98",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "ce9530cb-e0cb-4db3-9f82-70c0b629c59e",
+			"id": "8f28f270-3402-43a4-82ce-bde2d6438e3f",
 			"key": "name",
 			"value": ""
 		},
 		{
-			"id": "75db65e2-59b1-4062-8312-908eabd04621",
+			"id": "99133451-2ae0-45c4-b2ab-ca992f6c9c91",
 			"key": "display_name",
 			"value": ""
 		},
 		{
-			"id": "1852b53f-35d5-4ffa-b674-57d94f021c8e",
+			"id": "af83a34d-18e5-4557-ae0f-c9ac0128fb07",
 			"key": "display_order",
 			"value": ""
 		},
 		{
-			"id": "a9e24252-4525-475b-9ba3-17c680730d53",
+			"id": "56282cf3-9ec1-4f3b-b0f4-7321eba6f5da",
 			"key": "min_value",
 			"value": ""
 		},
 		{
-			"id": "0fccab49-29ae-44c6-8023-9feb858c01dd",
+			"id": "d23ee7b5-593d-4415-9789-af20a967f98d",
 			"key": "max_value",
 			"value": ""
 		},
 		{
-			"id": "e9706200-38b7-4a5e-848a-3aaa25f4c4d5",
+			"id": "0eea1ee7-057d-46c2-857f-6feb9339ef2f",
 			"key": "min_threshold",
 			"value": ""
 		},
 		{
-			"id": "1ac5667b-5889-4f9a-90de-e02739eb0bdb",
+			"id": "bddb08b9-6162-4e95-9af2-099aeda28af8",
 			"key": "max_threshold",
 			"value": ""
 		},
 		{
-			"id": "b21e5f07-75cf-4782-874a-ffd30df48470",
+			"id": "48e1a0a8-3687-45bc-930c-826eab91d109",
 			"key": "instrument",
 			"value": ""
 		},
 		{
-			"id": "7d50f123-1c9c-43a9-a06c-e0480bae064c",
+			"id": "dba31787-bf90-4744-b87e-00da196412ec",
 			"key": "description",
 			"value": ""
 		},
 		{
-			"id": "00f2dbfe-a9b1-46fa-9533-051c8a2970e3",
+			"id": "ab1f642f-4c39-4915-b55e-e98b93eb9e7e",
 			"key": "presence",
 			"value": ""
 		},
 		{
-			"id": "795a76be-7b67-485b-bae5-755396d195de",
+			"id": "d7b2cdd9-951b-47eb-9282-6f0c813cda1c",
 			"key": "branch",
 			"value": ""
 		},
 		{
-			"id": "8b5dfcaf-06f1-4e04-8ede-48912c89f5b0",
+			"id": "4ebaf4e1-b1a9-4d9f-b996-d6a53734d09f",
 			"key": "category",
 			"value": ""
 		},
 		{
-			"id": "c43a0c8b-b588-48c3-b89a-5512767c6dd3",
+			"id": "00b8ddb6-e48d-4a5b-981d-46ae3fb09c30",
 			"key": "morphology_id",
 			"value": 1081
 		},
 		{
-			"id": "360c52ef-0cb5-4358-bf3d-c12239be5d33",
+			"id": "32a3704d-b57a-4334-93a9-6152d83781b2",
 			"key": "morphology_name",
 			"value": "CIL 2003-116:G-27:X-184F:604"
 		},
 		{
-			"id": "a60723e3-6752-47af-bcdb-b637f808978c",
+			"id": "ebfd09c6-50d0-46b3-8f3a-d049ffc69c49",
 			"key": "morphology_key",
 			"value": "CIL 2003-116:G-27:X-184F:604"
 		},
 		{
-			"id": "2c099539-2f72-4d0a-aa98-9658aa8cc5f4",
+			"id": "d9397c6a-70b2-4376-8cda-7260a6fe486c",
 			"key": "refits_id",
 			"value": ""
 		},
 		{
-			"id": "e161ef2c-2ca7-4a5c-9cd7-af52e4728d7f",
+			"id": "7e87eace-5813-4322-978d-0ef0c9e629ce",
 			"key": "refits_name",
 			"value": ""
 		},
 		{
-			"id": "6caba4c9-2cb7-47f3-9036-5958c3b79849",
+			"id": "d286dfda-7322-4c70-be0c-558e745d9a76",
 			"key": "refits_key",
 			"value": ""
 		},
 		{
-			"id": "90843acb-ac1b-45a8-af5c-9205051e0a5c",
+			"id": "8a48b4b1-fb59-4978-bffe-596cdaed9888",
 			"key": "pairmatch_id",
 			"value": ""
 		},
 		{
-			"id": "5b931059-49f3-43f6-ab2a-5319a6d7e3a3",
+			"id": "f00d0490-306c-40ff-abae-a3ab51d5fd73",
 			"key": "art_id",
 			"value": ""
 		},
 		{
-			"id": "525ab879-068b-45b9-bccb-214fbaa2a97e",
+			"id": "4711e2cb-fd78-48bc-b893-d86d8350e5f0",
 			"key": "art_name",
 			"value": ""
 		},
 		{
-			"id": "93086738-7f88-43cb-a3fc-b9c72673770e",
+			"id": "0dc29f93-9809-48c3-aa65-1ccc28b07124",
 			"key": "art_key",
 			"value": ""
 		},
 		{
-			"id": "7b8f8efa-07e6-4438-898e-783a548d0832",
+			"id": "f8e3ea6c-8cde-40d7-b75c-9d291388ed70",
 			"key": "general:original",
 			"value": null
 		},
 		{
-			"id": "8d759c93-60ce-47e7-85c1-96273b8e9fd7",
+			"id": "e6df68bc-e69e-4781-aa85-846970ca5874",
 			"key": "general:review",
 			"value": null
 		},
 		{
-			"id": "ce71dec1-14ed-425d-a1b6-52e657cb27b7",
+			"id": "33eb4920-0eff-443a-bb12-c3dc1fe17fcc",
 			"key": "general:se_id",
 			"value": null
 		},
 		{
-			"id": "d309af76-b13f-4b2a-ad6c-e2f9565c4ad5",
+			"id": "d4f735b6-5785-4b8e-891d-813d31174f8f",
 			"key": "general:type",
 			"value": null
 		}
